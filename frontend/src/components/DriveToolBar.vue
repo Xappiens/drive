@@ -71,7 +71,7 @@
         <Button
           v-if="getEntities.loading"
           :loading="true"
-          label="Loading..."
+          :label="__('Loading...')"
         />
         <TeamSelector
           v-if="

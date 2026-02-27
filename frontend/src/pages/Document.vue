@@ -32,7 +32,7 @@
         () => {
           docSettings.doc.settings.lock = null
           editor.editor.commands.focus()
-          toast('Unlocked document temporarily.')
+          toast(__('Unlocked document temporarily.'))
         }
       "
     />
@@ -44,7 +44,7 @@
         () => {
           docSettings.doc.settings.lock = true
           editor.editor.commands.blur()
-          toast('Locked document.')
+          toast(__('Locked document.'))
         }
       "
     />
@@ -305,9 +305,9 @@ const updateDocument = createResource({
   url: "drive.api.files.save_doc",
   onError() {
     toast({
-      title: "There was an error.",
+      title: __("There was an error."),
       icon: LucideFileWarning,
-      text: "We can't save your file. Please contact support.",
+      text: __("We can't save your file. Please contact support."),
     })
   },
 })
@@ -335,7 +335,7 @@ const navBarActions = computed(
               e.stopPropagation()
               e.preventDefault()
             },
-            label: "Collaborate",
+            label: __("Collaborate"),
             icon: LucideUserPen,
             cond:
               editor.value?.editor && editor.value.editor.getText().length == 0,
@@ -352,12 +352,12 @@ const navBarActions = computed(
             },
           },
           {
-            label: "View",
+            label: __("View"),
             icon: LucideView,
             cond: entity.value.write,
             submenu: [
               {
-                label: "Lock",
+                label: __("Lock"),
                 switch: true,
                 switchValue: docSettings.doc.settings.lock,
                 icon: LucideLock,
@@ -369,7 +369,7 @@ const navBarActions = computed(
                 },
               },
               {
-                label: "Wide",
+                label: __("Wide"),
                 icon: LucideRulerDimensionLine,
                 switch: true,
                 switchValue: docSettings.doc.settings.wide,
@@ -389,7 +389,7 @@ const navBarActions = computed(
                 },
                 switch: true,
                 switchValue: docSettings.doc.settings.minimal,
-                label: "Minimal",
+                label: __("Minimal"),
                 icon: LucideEraser,
               },
             ],
@@ -398,21 +398,21 @@ const navBarActions = computed(
             onClick: () => {
               showSettings.value = true
             },
-            label: "Settings",
+            label: __("Settings"),
             icon: LucideSettings,
           },
           {
-            label: "Export",
+            label: __("Export"),
             icon: LucideDownload,
             submenu: dynamicList([
               {
                 onClick: exportMedia,
-                label: "Export Media",
+                label: __("Export Media"),
                 icon: LucideImageDown,
               },
               {
                 onClick: exportBlog,
-                label: "Export Blog",
+                label: __("Export Blog"),
                 icon: LucideNewspaper,
                 cond: apps.data && apps.data.find((k) => k.name === "blog"),
               },
@@ -420,7 +420,7 @@ const navBarActions = computed(
           },
           {
             onClick: clearCache,
-            label: "Clear Cache",
+            label: __("Clear Cache"),
             icon: LucideListRestart,
           },
         ]),
@@ -431,27 +431,27 @@ const navBarActions = computed(
         items: dynamicList([
           {
             icon: LucideHistory,
-            label: "Versions",
+            label: __("Versions"),
             cond: docSettings?.doc?.settings.collab,
             onClick: () => (showVersions.value = true),
           },
           {
             icon: MessagesSquare,
-            label: "Show Comments",
+            label: __("Show Comments"),
             onClick: () => (showComments.value = true),
             isEnabled: () => !showComments.value,
             cond: entity.value?.comments?.length,
           },
           {
             icon: MessagesSquare,
-            label: "Hide Comments",
+            label: __("Hide Comments"),
             onClick: () => (showComments.value = false),
             isEnabled: () => showComments.value,
             cond: entity.value?.comments?.length,
           },
           {
             icon: MessageSquareDot,
-            label: "Show Resolved",
+            label: __("Show Resolved"),
             onClick: () => {
               showResolved.value = true
               showComments.value = true
@@ -461,7 +461,7 @@ const navBarActions = computed(
           },
           {
             icon: MessageSquareDot,
-            label: "Hide Resolved",
+            label: __("Hide Resolved"),
             onClick: () => (showResolved.value = false),
             isEnabled: () => showResolved,
             cond: entity.value?.comments?.filter((k) => k.resolved)?.length,
@@ -496,7 +496,7 @@ const clearCache = () => {
 }
 
 const exportMedia = async () => {
-  toast("Preparing...")
+  toast(__("Preparing..."))
   const urls = editor.value.editor.commands.getEmbedUrls()
   const getExtension = createResource({
     url: "drive.api.docs.get_extension",
@@ -508,7 +508,7 @@ const exportMedia = async () => {
   entitiesDownload(null, urls)
 }
 const exportBlog = async () => {
-  toast("Starting export...")
+  toast(__("Starting export..."))
   createResource({
     url: "drive.api.docs.create_blog",
     auto: true,
@@ -521,7 +521,7 @@ const exportBlog = async () => {
     },
     onError: (error) => {
       toast({
-        title: error.messages[0] || "Could not export your document.",
+        title: error.messages[0] || __("Could not export your document."),
         type: "error",
       })
     },
@@ -530,13 +530,13 @@ const exportBlog = async () => {
 // Events
 window.addEventListener("offline", () => {
   toast({
-    title: "You're offline",
+    title: __("You're offline"),
     icon: LucideWifiOff,
-    text: "Don't worry, your changes will be saved locally.",
+    text: __("Don't worry, your changes will be saved locally."),
   })
 })
 window.addEventListener("online", () => {
-  toast({ title: "Back online!", icon: h(LucideWifi) })
+  toast({ title: __("Back online!"), icon: h(LucideWifi) })
 })
 
 onBeforeUnmount(() => {
@@ -549,8 +549,7 @@ let toasted
 watch(isOldSchema, (v) => {
   if (docSettings?.doc?.settings && entity.value.write && v && !toasted) {
     toast({
-      title:
-        "This document uses an old schema. Collaborative editing is disabled.",
+      title: __("This document uses an old schema. Collaborative editing is disabled."),
       type: "warning",
       duration: 8000,
     })

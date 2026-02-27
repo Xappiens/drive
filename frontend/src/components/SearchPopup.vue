@@ -13,14 +13,14 @@
           v-model="search"
           type="text"
           class="appearance-none forced-colors:hidden w-full border-none bg-transparent py-3 pl-11.5 pr-4.5 text-base text-ink-gray-8 placeholder-ink-gray-4 focus:ring-0"
-          placeholder="Find"
+          :placeholder="__('Find')"
         >
       </div>
       <div
         v-if="searchResults.data?.length"
         class="flex flex-col p-2.5 overflow-y-auto overflow-x-auto max-h-[50vh]"
       >
-        <span class="mb-2 pl-1 text-sm text-ink-gray-5">Results for <strong>{{ search }}:</strong></span>
+        <span class="mb-2 pl-1 text-sm text-ink-gray-5">{{ __("Results for") }} <strong>{{ search }}:</strong></span>
         <div
           v-for="entity in searchResults.data"
           :key="entity.name"
@@ -64,7 +64,7 @@
         v-if="false"
         class="flex flex-col mb-2 mt-4 first:mt-3"
       >
-        <span class="mb-1 px-4.5 text-base text-ink-gray-5">Jump to</span>
+        <span class="mb-1 px-4.5 text-base text-ink-gray-5">{{ __("Jump to") }}</span>
         <div class="px-2.5">
           <div
             class="flex w-full min-w-0 items-center rounded px-2 py-2 text-base font-medium text-ink-gray-7 hover:bg-surface-gray-2"
@@ -74,7 +74,7 @@
             "
           >
             <LucideHome class="mr-2 size-4 text-ink-gray-7" />
-            Home
+            {{ __("Home") }}
           </div>
           <div
             class="flex w-full min-w-0 items-center rounded px-2 py-2 text-base font-medium text-ink-gray-7 hover:bg-surface-gray-2"
@@ -84,7 +84,7 @@
             "
           >
             <LucideClock class="mr-2 size-4 text-ink-gray-7" />
-            Recents
+            {{ __("Recents") }}
           </div>
           <div
             class="flex w-full min-w-0 items-center rounded px-2 py-2 text-base font-medium text-ink-gray-7 hover:bg-surface-gray-2"
@@ -94,10 +94,10 @@
             "
           >
             <LucideStar class="mr-2 size-4 text-ink-gray-7" />
-            Favourites
+            {{ __("Favourites") }}
           </div>
         </div>
-        <span class="mt-3 mb-1 px-4.5 text-base text-ink-gray-5">Actions</span>
+        <span class="mt-3 mb-1 px-4.5 text-base text-ink-gray-5">{{ __("Actions") }}</span>
         <div class="px-2.5">
           <div
             class="flex w-full min-w-0 items-center rounded px-2 py-2 text-base font-medium text-ink-gray-7 hover:bg-surface-gray-2"

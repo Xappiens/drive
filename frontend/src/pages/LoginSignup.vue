@@ -13,10 +13,10 @@
               <p class="mb-2 text-2xl font-semibold leading-6 text-ink-gray-9">
                 {{
                   isLogin
-                    ? "Login to Drive"
+                    ? __("Login to Drive")
                     : params.get("t")
-                    ? "Join " + params.get("t")
-                    : "Create an account"
+                    ? __("Join") + " " + params.get("t")
+                    : __("Create an account")
                 }}
               </p>
               <p
@@ -25,9 +25,9 @@
                 {{
                   !isLogin
                     ? params.get("t")
-                      ? "Powered by Frappe Drive."
-                      : "Welcome to Drive."
-                    : "Welcome back!"
+                      ? __("Powered by Frappe Drive.")
+                      : __("Welcome to Drive.")
+                    : __("Welcome back!")
                 }}
               </p>
             </div>
@@ -35,9 +35,9 @@
             <form class="flex flex-col">
               <FormControl
                 v-model="email"
-                label="Email"
+                :label="__('Email')"
                 type="email"
-                placeholder="johndoe@mail.com"
+                :placeholder="__('johndoe@mail.com')"
                 autocomplete="email"
                 :disabled="otpRequested"
                 required
@@ -46,18 +46,18 @@
                 <div class="mt-5 flex flex-row gap-5">
                   <FormControl
                     v-model="first_name"
-                    label="First Name"
+                    :label="__('First Name')"
                     type="text"
-                    placeholder="Robin"
+                    :placeholder="__('Robin')"
                     variant="outline"
                     autocomplete="off"
                     required
                   />
                   <FormControl
                     v-model="last_name"
-                    label="Last Name"
+                    :label="__('Last Name')"
                     type="text"
-                    placeholder="Hood"
+                    :placeholder="__('Hood')"
                     variant="outline"
                     autocomplete="off"
                   />
@@ -68,13 +68,13 @@
                     type="checkbox"
                   />
                   <label class="text-base">
-                    I accept the
+                    {{ __("I accept the") }}
                     <a
                       class="!text-ink-gray-7"
                       href="https://frappecloud.com/policies"
                       target="_blank"
                     >
-                      Terms and Policies
+                      {{ __("Terms and Policies") }}
                     </a>
                   </label>
                 </div>
@@ -86,17 +86,17 @@
                     class="w-full font-medium"
                     @click="signup.submit()"
                   >
-                    Sign up
+                    {{ __("Sign up") }}
                   </Button>
                 </div>
               </template>
               <div v-else-if="otpRequested">
                 <FormControl
                   v-model="otp"
-                  label="Verification code"
+                  :label="__('Verification code')"
                   type="text"
                   class="mt-4"
-                  placeholder="123456"
+                  :placeholder="__('123456')"
                   :disabled="verifyOTP.loading"
                   maxlength="6"
                   required
@@ -124,7 +124,7 @@
                     })
                   "
                 >
-                  Verify
+                  {{ __("Verify") }}
                 </Button>
                 <Button
                   class="mt-2 w-full"
@@ -133,10 +133,10 @@
                   :disabled="otpResendCountdown > 0"
                   @click="sendOTP.submit()"
                 >
-                  Resend verification code
+                  {{ __("Resend verification code") }}
                   {{
                     otpResendCountdown > 0
-                      ? `in ${otpResendCountdown} seconds`
+                      ? " " + __("in") + " " + otpResendCountdown + " " + __("seconds")
                       : ""
                   }}
                 </Button>
@@ -148,7 +148,7 @@
                   variant="solid"
                   @click="sendOTP.submit({ email, login: isLogin })"
                 >
-                  {{ isLogin ? "Login" : "Join" }}
+                  {{ isLogin ? __("Login") : __("Join") }}
                 </Button>
                 <div
                   v-if="oAuthProviders.data?.length"
@@ -158,7 +158,7 @@
                     <span
                       class="relative bg-surface-white px-2 text-sm font-medium leading-8 text-ink-gray-8"
                     >
-                      or
+                      {{ __("or") }}
                     </span>
                   </div>
                 </div>
@@ -171,7 +171,7 @@
                   <div class="flex items-center">
                     <div v-html="provider.icon" />
                     <span class="ml-2"
-                      >{{ isLogin ? "Continue" : "Join" }} with
+                      >{{ isLogin ? __("Continue") : __("Join") }} {{ __("with") }}
                       {{ provider.provider_name }}</span
                     >
                   </div>
@@ -192,8 +192,8 @@
               >
                 {{
                   isLogin
-                    ? "New member? Create a new account."
-                    : "Already have an account? Log in."
+                    ? __("New member? Create a new account.")
+                    : __("Already have an account? Log in.")
                 }}
               </router-link>
             </div>
@@ -265,7 +265,7 @@ const signup = createResource({
   onError(err) {
     console.log(err.messages)
     if (err.exc_type === "DuplicateEntryError") {
-      toast({ title: "Account already exists - please login.", type: "error" })
+      toast({ title: __("Account already exists - please login."), type: "error" })
     } else {
       toast({ title: err.messages[0], type: "error" })
     }
@@ -283,7 +283,7 @@ const sendOTP = createResource({
     otpRequested.value = true
     otpResendCountdown.value = 30
     account_request.value = data.message || data
-    toast("Verification code sent to your email")
+    toast(__("Verification code sent to your email"))
   },
   onError(err) {
     toast({ title: err.messages[0], type: "error" })

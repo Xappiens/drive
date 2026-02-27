@@ -151,12 +151,12 @@
                   :options="
                     dynamicList([
                       {
-                        label: 'Edit',
+                        label: __('Edit'),
                         onClick: () => (reply.edit = true),
                         cond: comment.owner == $store.state.user.id,
                       },
                       {
-                        label: 'Delete',
+                        label: __('Delete'),
                         onClick: () => removeComment(reply.name, false, true),
                         cond:
                           comment.owner == $store.state.user.id && index !== 0,
@@ -191,7 +191,7 @@
               <div class="comment-content text-sm">
                 <CommentEditor
                   v-model="commentContents[reply.name]"
-                  placeholder="Edit"
+                  :placeholder="__('Edit')"
                   :disabled="
                     isEmpty(commentContents[reply.name]) ||
                     commentContents[reply.name] == reply.content
@@ -250,7 +250,7 @@
 
             <CommentEditor
               v-model="newReplies[comment.name]"
-              placeholder="Reply"
+              :placeholder="__('Reply')"
               :is-empty="isEmpty(newReplies[comment.name])"
               @change="setCommentHeights"
               @submit="(editor) => newReply(comment, editor)"
@@ -382,7 +382,7 @@ const createComment = createResource({
   },
   onError: () => {
     toast({
-      title: "Your comment did not go through. ",
+      title: __("Your comment did not go through."),
       icon: LucideMessageCircleWarning,
     })
   },

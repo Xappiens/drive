@@ -58,7 +58,7 @@
               <FormControl
                 v-if="typeof team_name === 'string'"
                 v-model="team_name"
-                label="Team Name"
+                :label="__('Team Name')"
                 class="py-2"
                 type="text"
                 required

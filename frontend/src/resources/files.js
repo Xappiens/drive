@@ -54,6 +54,11 @@ export const getPersonal = createResource({
   },
 })
 
+export const loadDemoFiles = createResource({
+  url: "drive.api.demo.load_demo_files",
+  method: "POST",
+})
+
 export const getFavourites = createResource({
   ...COMMON_OPTIONS,
   url: "drive.api.list.files",

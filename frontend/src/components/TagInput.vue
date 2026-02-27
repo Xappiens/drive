@@ -38,7 +38,7 @@
             v-focus
             v-on-outside-click="closeInput"
             class="bg-white py-1.5"
-            placeholder="Search"
+            :placeholder="__('Search')"
             type="text"
             @input="tagInputText = $event"
             @keydown.enter="
@@ -94,7 +94,7 @@
           <span
             v-else
             class="rounded-md py-4 px-1 text-sm text-gray-600"
-            >No tags found</span
+            >{{ __("No tags found") }}</span
           >
         </div>
         <div class="flex items-center justify-end border-t p-1">

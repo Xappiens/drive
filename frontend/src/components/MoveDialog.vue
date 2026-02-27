@@ -133,7 +133,7 @@
                             let obj = {
                               parent: node.value,
                               value: null,
-                              label: 'New folder',
+                              label: __('New folder'),
                             }
                             node.children.push(obj)
                             if (isCollapsed) toggleCollapsed(e)
@@ -282,16 +282,16 @@ const tree = reactive({
 // State variables
 const selected = ref("")
 const breadcrumbs = ref([
-  { name: "", title: in_home ? "Home" : "Team", is_private: in_home ? 1 : 0 },
+  { name: "", title: in_home ? __("Home") : __("Team"), is_private: in_home ? 1 : 0 },
 ])
 
 const tabs = [
   {
-    label: "Home",
+    label: __("Home"),
     icon: h(LucideHome, { class: "size-4" }),
   },
   {
-    label: "Teams",
+    label: __("Teams"),
     icon: h(LucideBuilding2, { class: "size-4" }),
   },
   // {
@@ -369,7 +369,7 @@ watch(
     switch (newValue) {
       case 0:
         chosenTeam.value = ""
-        breadcrumbs.value = [{ name: "", title: "Home", is_private: 1 }]
+        breadcrumbs.value = [{ name: "", title: __("Home"), is_private: 1 }]
         fetchFolderContents(tree)
         break
       case 1:
@@ -441,7 +441,7 @@ const createFolder = createResource({
   onError() {
     toast({
       type: "error",
-      title: "There is already a folder with this name here.",
+      title: __("There is already a folder with this name here."),
     })
   },
 })

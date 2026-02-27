@@ -2,7 +2,7 @@
   <Dialog
     v-model="open"
     :options="{
-      title: 'Settings',
+      title: __('Settings'),
     }"
     @close="model = false"
   >
@@ -16,15 +16,15 @@
             <Form>
               <template #default="{ dirty, setDirty, error }">
                 <h3 class="text-sm font-medium text-ink-gray-7 mb-3">
-                  Configuration
+                  {{ __("Configuration") }}
                 </h3>
                 <div class="flex flex-col gap-4 pb-5 pr-5">
                   <FormControl
                     v-model="settings.versioning"
                     type="number"
                     min="1"
-                    label="Versioning Frequency"
-                    placeholder="Default"
+                    :label="__('Versioning Frequency')"
+                    :placeholder="__('Default')"
                     :options="[]"
                     :validate="
                       (k) =>
@@ -44,31 +44,29 @@
                   <FormControl
                     v-model="settings.font_family"
                     type="select"
-                    label="Font Family"
+                    :label="__('Font Family')"
                     :options="fontOptions"
-                    :description="`Choose the default font family for ${
-                      tabIndex === 1 ? 'this document' : 'new documents'
-                    }.`"
+                    :description="__('Choose the default font family for') + ' ' + (tabIndex === 1 ? __('this document') : __('new documents')) + '.'"
                   />
                   <FormControl
                     v-model="settings.font_size"
                     type="select"
-                    label="Font Size"
+                    :label="__('Font Size')"
                     :options="fontSizeOptions"
-                    :description="'Set the font size  of the editor (px).'"
+                    :description="__('Set the font size of the editor (px).')"
                   />
                   <FormControl
                     v-model="settings.line_height"
                     type="select"
-                    label="Line Height"
+                    :label="__('Line Height')"
                     :options="lineHeightOptions"
-                    description="Set the line height of the editor."
+                    :description="__('Set the line height of the editor.')"
                   />
                   <!-- <FormControl
                     label="Custom Classes"
                     placeholder="font-semibold"
                     v-model="settings.custom_css"
-                    description="Any additional classes to apply."
+                    :description="__('Any additional classes to apply.')"
                     type="textarea"
                   /> -->
                   <div class="mt-2">
@@ -79,7 +77,7 @@
                       {{ error }}
                     </div>
                     <Button
-                      label="Update"
+                      :label="__('Update')"
                       variant="solid"
                       class="w-full mt-3"
                       :disabled="!dirty || error"
@@ -116,7 +114,7 @@ const props = defineProps({
 })
 const tabs = dynamicList([
   { label: "Everywhere", icon: LucideGlobe2 },
-  { label: "This document", icon: LucideFileText },
+  { label: __("This document"), icon: LucideFileText },
 ])
 const tabIndex = ref(props.editable ? 1 : 0)
 

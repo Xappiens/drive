@@ -1,0 +1,13 @@
+Instrucciones para la demo de Drive
+-----------------------------------
+
+1. Explora la carpeta "Archivos de ejemplo".
+2. Abre cualquier archivo para ver la vista previa.
+3. Prueba a crear una nueva carpeta o subir un archivo.
+4. Usa "Compartir" para dar acceso a otro usuario.
+5. Marca archivos como favoritos para acceder rápido.
+
+Para cargar de nuevo estos archivos de ejemplo, ejecuta en el servidor:
+  bench execute drive.api.demo.load_demo_files
+
+(o usa el comando: bench load-demo-files si está configurado)

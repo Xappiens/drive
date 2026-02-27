@@ -5,17 +5,7 @@
     row-key="name"
     :columns="selectedColumns"
     :rows="formattedRows"
-    :options="{
-      selectable: true,
-      enableActive: true,
-      showTooltip: true,
-      resizeColumn: false,
-      // Should be getLink(row, false, false) - but messes up clicking
-      getRowRoute: () => '',
-      emptyState: {
-        description: 'Nothing found - try something else?',
-      },
-    }"
+    :options="listViewOptions"
     @update:selections="handleSelections"
     @update:active-row="setActive"
   >
@@ -108,6 +98,19 @@ const props = defineProps({
 })
 const emit = defineEmits(["dropped"])
 
+const _t = typeof window !== "undefined" && window.__ ? window.__ : (s) => s
+
+const listViewOptions = computed(() => ({
+  selectable: true,
+  enableActive: true,
+  showTooltip: true,
+  resizeColumn: false,
+  getRowRoute: () => "",
+  emptyState: {
+    description: _t("Nothing found - try something else?"),
+  },
+}))
+
 const container = useTemplateRef("container")
 const selections = defineModel(new Set())
 const selectedRow = ref(null)
@@ -119,7 +122,7 @@ const formattedRows = computed(() => {
   if (Array.isArray(props.folderContents)) return props.folderContents
   return Object.keys(props.folderContents)
     .map((k) => ({
-      group: k,
+      group: _t(k),
       rows: props.folderContents[k] || [],
       collapsed: false,
     }))

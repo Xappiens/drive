@@ -59,7 +59,7 @@
   <p
     class="hidden absolute text-center top-1/2 left-[calc(50%-4rem)] w-32 z-10 font-bold"
   >
-    Drop to upload
+    {{ __('Drop to upload') }}
   </p>
   <Transition
     v-if="store.state.uploads.length > 0"
@@ -149,7 +149,7 @@ const sortId = computed(
 )
 const sortOrder = ref(
   store.state.sortOrder[sortId.value] || {
-    label: "Modified",
+    label: __("Modified"),
     field: "modified",
     ascending: false,
   }
@@ -241,6 +241,7 @@ watch(
   { immediate: true, deep: false }
 )
 emitter.on("refresh", refreshData)
+emitter.on("fetchFolderContents", refreshData)
 emitter.on("remove-file", (item) => {
   console.log("alo")
   selections.value.clear()
@@ -277,14 +278,14 @@ const actionItems = computed(() => {
   if (route.name === "Trash") {
     return [
       {
-        label: "Restore",
+        label: __("Restore"),
         icon: LucideRotateCcw,
         action: () => (dialog.value = "restore"),
         multi: true,
         important: true,
       },
       {
-        label: "Delete forever",
+        label: __("Delete forever"),
         icon: LucideTrash,
         action: () => (dialog.value = "d"),
         isEnabled: () => route.name === "Trash",
@@ -416,11 +417,11 @@ async function newLink() {
     const url = new URL(text)
     if (url.host)
       toast({
-        title: "Link detected",
+        title: __("Link detected"),
         text,
         buttons: [
           {
-            label: "Add",
+            label: __("Add"),
             onClick: () => {
               dialog.value = "l"
             },

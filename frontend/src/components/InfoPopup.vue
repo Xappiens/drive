@@ -13,7 +13,7 @@
     </template>
     <template #body-content>
       <ul class="space-y-3 text-sm mb-4 text-ink-gray-8">
-        <span class="text-base font-semibold">Information</span>
+        <span class="text-base font-semibold">{{ __("Information") }}</span>
         <li>
           <span class="inline-block w-24 text-ink-gray-5"
             >{{ __("Owner") }}:</span
@@ -95,7 +95,7 @@
         </li>
       </ul>
       <div class="flex justify-between items-center">
-        <span class="text-base font-semibold text-ink-gray-8">Access</span>
+        <span class="text-base font-semibold text-ink-gray-8">{{ __("Access") }}</span>
         <Button
           v-if="entity.share"
           :variant="'subtle'"
@@ -163,7 +163,7 @@
             <a
               :href="'/app/drive-file/' + entity.name"
               target="_blank"
-              >Open in Desk</a
+              >{{ __("Open in Desk") }}</a
             >
           </Button>
         </div>

@@ -17,10 +17,21 @@
     <p class="text-sm text-ink-gray-5">
       {{ __(description) }}
     </p>
+    <Button
+      v-if="button?.label"
+      :loading="button.loading"
+      :disabled="button.loading"
+      class="mt-2"
+      @click="onButtonClick"
+    >
+      {{ __(button.label) }}
+    </Button>
   </div>
 </template>
 <script setup>
-defineProps({
+import { Button } from "frappe-ui"
+
+const props = defineProps({
   icon: {
     type: Object,
     default: null,
@@ -38,4 +49,8 @@ defineProps({
     required: false,
   },
 })
+
+async function onButtonClick() {
+  if (props.button?.action) await props.button.action()
+}
 </script>

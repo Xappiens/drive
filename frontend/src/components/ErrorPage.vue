@@ -28,7 +28,7 @@
         size="md"
         @click="$router.replace({ name: 'Home' })"
       >
-        <div class="flex gap-2"><LucideHome class="size-4" />Go Home</div>
+        <div class="flex gap-2"><LucideHome class="size-4" />{{ __("Go Home") }}</div>
       </Button>
       <Button
         v-else
@@ -36,7 +36,7 @@
         size="md"
         @click="$router.replace('/drive/login')"
       >
-        <div class="flex gap-2"><LucideUser class="size-4" />Login</div>
+        <div class="flex gap-2"><LucideUser class="size-4" />{{ __("Login") }}</div>
       </Button>
     </div>
   </div>

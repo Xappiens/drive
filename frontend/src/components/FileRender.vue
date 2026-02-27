@@ -4,7 +4,7 @@
     class="max-w-[450px] h-fit self-center p-10 bg-surface-white rounded-md text-neutral-100 text-xl text-center font-medium shadow-xl flex flex-col justify-center items-center gap-4"
   >
     <LucideAlertCircle class="size-10" />
-    <span>Cannot open file</span>
+    <span>{{ __("Cannot open file") }}</span>
     <span class="text-base text-center text-ink-gray-7">
       {{ error }}
     </span>
@@ -13,7 +13,7 @@
       variant="solid"
       @click="download"
     >
-      Download
+      {{ __("Download") }}
     </Button>
   </div>
   <component
@@ -50,9 +50,9 @@ if (!diskSettings.data && store.getters.isLoggedIn) diskSettings.fetch()
 const error = computed(() => {
   const limit = diskSettings.data?.preview_size || 100
   if (!Object.keys(RENDERS).includes(props.previewEntity.file_type))
-    return "Previews are not supported for this file type. Would you like to download it instead?"
+    return __("Previews are not supported for this file type. Would you like to download it instead?")
   else if (props.previewEntity.file_size > limit * 1024 * 1024)
-    return "This is too large to preview - would you like to download instead?"
+    return __("This is too large to preview - would you like to download instead?")
   return false
 })
 

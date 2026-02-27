@@ -3,7 +3,7 @@
     :get-entities="getFavourites"
     :empty="{
       icon: LucideStar,
-      title: 'No favourites yet',
+      title: __('No favourites yet'),
       description: 'You can save your favourites here.',
     }"
   />

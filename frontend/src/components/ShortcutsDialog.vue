@@ -1,7 +1,7 @@
 <template>
   <Dialog
     v-model="open"
-    :options="{ title: 'Keyboard Shortcuts', size: '4xl' }"
+    :options="{ title: __('Keyboard Shortcuts'), size: '4xl' }"
   >
     <template #body-content>
       <div
@@ -63,34 +63,34 @@ const metaKey = computed(() => {
 })
 const shortcutGroups = [
   {
-    title: "General",
+    title: __("General"),
     shortcuts: [
-      [[metaKey.value, "K"], "Find Files"],
-      [["Ctrl", ","], "Open Settings"],
+      [[metaKey.value, "K"], __("Find Files")],
+      [["Ctrl", ","], __("Open Settings")],
     ],
   },
   {
-    title: "Navigation",
+    title: __("Navigation"),
     shortcuts: [
-      [getLabel("i"), "Inbox"],
-      [getLabel("h"), "Home"],
-      [getLabel("t"), "Team"],
-      [getLabel("r"), "Recents"],
-      [getLabel("f"), "Favourites"],
-      [getLabel("s"), "Shared"],
-      [getLabel("d"), "Shared"],
+      [getLabel("i"), __("Inbox")],
+      [getLabel("h"), __("Home")],
+      [getLabel("t"), __("Team")],
+      [getLabel("r"), __("Recents")],
+      [getLabel("f"), __("Favourites")],
+      [getLabel("s"), __("Shared")],
+      [getLabel("d"), __("Shared")],
     ],
   },
   {
-    title: "List",
+    title: __("List"),
     shortcuts: [
-      [[metaKey.value, "A"], "Select all"],
-      [["Esc"], "Unselect all"],
-      [getLabel("s"), "Share selected file(s)"],
-      [getLabel("m"), "Move selected file(s)"],
-      [[metaKey.value, "Delete"], "Delete selected file(s)"],
-      [getLabel("u"), "Upload a file"],
-      [getLabel("n"), "Create a folder"],
+      [[metaKey.value, "A"], __("Select all")],
+      [["Esc"], __("Unselect all")],
+      [getLabel("s"), __("Share selected file(s)")],
+      [getLabel("m"), __("Move selected file(s)")],
+      [[metaKey.value, "Delete"], __("Delete selected file(s)")],
+      [getLabel("u"), __("Upload a file")],
+      [getLabel("n"), __("Create a folder")],
     ],
   },
 ]

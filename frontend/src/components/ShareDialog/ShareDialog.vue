@@ -44,7 +44,7 @@
             </div>
           </div>
           <!-- Members section -->
-          <div class="text-ink-gray-5 font-medium text-base mb-2">Members</div>
+          <div class="text-ink-gray-5 font-medium text-base mb-2">{{ __("Members") }}</div>
           <div class="flex gap-3">
             <div class="flex-grow">
               <Combobox v-slot="{ open }" v-model="sharedUsers" multiple>
@@ -60,7 +60,7 @@
                           <LucideX class="h-4" stroke-width="1.5" @click.stop="() => sharedUsers.splice(idx, 1)" />
                         </template>
                       </Button>
-                      <ComboboxInput ref="queryInput" v-focus placeholder="Add people..."
+                      <ComboboxInput ref="queryInput" v-focus :placeholder="__('Add people...')"
                         class="text-base px-1.5 p-1 flex-shrink min-w-24 grow basis-0 border-none bg-transparent 1 text-ink-gray-8 placeholder-ink-gray-4 focus:ring-0"
                         autocomplete="off" @change="query = $event.target.value" />
                     </div>
@@ -133,9 +133,9 @@
               </div>
               <span v-if="user.user == $store.state.user.id" class="ml-auto mr-1 text-ink-gray-7">
                 <div v-if="user.user === entity.owner" class="flex gap-1">
-                  Owner (you)
+                  {{ __("Owner (you)") }}
                 </div>
-                <template v-else>You</template>
+                <template v-else>{{ __("You") }}</template>
               </span>
               <AccessButton v-else-if="user.user !== entity.owner"
                 class="text-ink-gray-7 relative flex-shrink-0 ml-auto" :access-obj="user"
@@ -155,7 +155,7 @@
                   })
                   " />
               <span v-else class="ml-auto flex items-center gap-1 text-ink-gray-5">
-                Owner
+                {{ __("Owner") }}
                 <LucideDiamond class="size-3" />
               </span>
             </div>
@@ -165,7 +165,7 @@
           </div>
           <div class="w-full flex items-center justify-between">
             <div>
-              <Button class="text-sm" variant="ghost" label="Advanced"
+              <Button class="text-sm" variant="ghost" :label="__('Advanced')"
                 :icon-left="h(LucideSettings, { class: 'size-4' })" @click="advanced = true" />
             </div>
             <div class="flex gap-2">
@@ -173,19 +173,19 @@
                 <template #prefix>
                   <LucideLink2 class="w-4 text-ink-gray-6" />
                 </template>
-                Copy Link
+                {{ __("Copy Link") }}
               </Button>
-              <Button v-if="sharedUsers.length" label="Invite" variant="solid" @click="addShares" />
+              <Button v-if="sharedUsers.length" :label="__('Invite')" variant="solid" @click="addShares" />
             </div>
           </div>
         </div>
         <div v-else>
-          <div class="flex text-sm gap-1 items-center mb-3 cursor-pointer" label="Back" @click="advanced = false">
+          <div class="flex text-sm gap-1 items-center mb-3 cursor-pointer" @click="advanced = false">
             <LucideArrowLeft class="size-4" />
-            Back
+            {{ __("Back") }}
           </div>
 
-          <Switch v-model="allowDownload" label="Allow download" />
+          <Switch v-model="allowDownload" :label="__('Allow download')" />
         </div>
       </div>
     </template>
@@ -248,29 +248,29 @@ allUsers.fetch({ team: "all" })
 
 const levelOptions = [
   {
-    label: "Accessible to invited members",
+    label: __("Accessible to invited members"),
     value: "restricted",
     icon: markRaw(LucideLock),
   },
   {
-    label: "Accessible to a team",
+    label: __("Accessible to a team"),
     value: "team",
     icon: markRaw(LucideBuilding2),
   },
-  { label: "Accessible to all", value: "public", icon: markRaw(LucideGlobe2) },
+  { label: __("Accessible to all"), value: "public", icon: markRaw(LucideGlobe2) },
 ]
 const accessOptions = computed(() =>
   dynamicList([
-    { value: "reader", label: "Can view", icon: LucideEye },
+    { value: "reader", label: __("Can view"), icon: LucideEye },
     {
       value: "upload",
-      label: "Can upload",
+      label: __("Can upload"),
       cond: props.entity.is_group && props.entity.upload,
       icon: LucideUpload,
     },
     {
       value: "editor",
-      label: "Can edit",
+      label: __("Can edit"),
       cond: props.entity.write,
       icon: LucidePencil,
     },

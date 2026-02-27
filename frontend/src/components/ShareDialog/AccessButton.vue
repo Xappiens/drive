@@ -1,25 +1,25 @@
 <template>
   <div class="flex gap-1">
     <Dropdown :button="{
-      label: shareAccess === 'editor' ? 'Can edit' : (shareAccess === 'upload' ? 'Can upload' : 'Can view'),
+      label: shareAccess === 'editor' ? __('Can edit') : (shareAccess === 'upload' ? __('Can upload') : __('Can view')),
       iconRight: 'chevron-down',
       variant: 'ghost',
     }" placement="right" :options="dynamicList([
       {
         value: 'reader',
-        label: 'Can view',
+        label: __('Can view'),
         onClick: () => (shareAccess = 'reader'),
         icon: shareAccess === 'reader' && 'check',
       },
       {
         value: 'editor',
-        label: 'Can edit',
+        label: __('Can edit'),
         onClick: () => (shareAccess = 'editor'),
         icon: shareAccess === 'editor' && 'check',
       },
       {
         value: 'upload',
-        label: 'Can upload',
+        label: __('Can upload'),
         cond: props.folder,
         onClick: () => (shareAccess = 'upload'),
         icon: shareAccess === 'upload' && 'check',
@@ -29,7 +29,7 @@
         hideLabel: true,
         items: [
           {
-            label: 'Remove',
+            label: __('Remove'),
             onClick: () => emit('removeAccess'),
             theme: 'red',
           },

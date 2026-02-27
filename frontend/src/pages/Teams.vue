@@ -7,18 +7,18 @@
       <a
         href="#"
         @click="$store.dispatch('logout')"
-      >Log out</a>
+      >{{ __("Log out") }}</a>
     </div>
     <div class="flex flex-col items-center">
       <FrappeDriveLogo class="inline-block h-12 w-12 rounded-md" />
     </div>
 
     <h2 class="font-bold text-lg text-center text-ink-gray-8">
-      Welcome, {{ $store.state.user.fullName.split(" ")[0] }}
+      {{ __("Welcome") }}, {{ $store.state.user.fullName.split(" ")[0] }}
     </h2>
     <div>
       <p class="font-semibold text-sm text-ink-gray-8 mb-1 ms-1">
-        Teams
+        {{ __("Teams") }}
       </p>
       <ul class="flex flex-col">
         <template
@@ -62,7 +62,7 @@
             {{ formatDate(invite.creation) }}</span>
         </div>
         <div class="flex gap-2">
-          <Tooltip text="You requested an invite from this team.">
+          <Tooltip :text="__('You requested an invite from this team.')">
             <Badge
               v-if="invite.status === 'Proposed'"
               class="my-auto mr-2"
@@ -99,7 +99,7 @@
                 {
                   onSuccess: (data) => {
                     if (data) window.location.replace(data)
-                    else toast('Added to the team')
+                    else toast(__('Added to the team'))
                   },
                 }
               )

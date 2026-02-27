@@ -32,12 +32,12 @@
       class="flex gap-2 justify-center items-center"
     >
       <Button
-        label="Prev"
+        :label="__('Prev')"
         @click="page = page > 1 ? page - 1 : page"
       />
       <span class="text-sm">{{ page }} / {{ pages }}</span>
       <Button
-        label="Next"
+        :label="__('Next')"
         @click="page = page < pages ? page + 1 : page"
       />
     </div>

@@ -49,7 +49,7 @@ const props = defineProps(["isExpanded"])
 const formattedString = computed(() => {
   return (
     formatSize(storageBar.data.total_size || 0) +
-    " used out of " +
+    window.__(" used out of ") +
     base2BlockSize(storageMax.value)
   )
 })

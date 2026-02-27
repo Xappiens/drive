@@ -70,7 +70,7 @@ const dialogData = computed(() => {
       },
       button: {
         variant: "solid",
-        label: "Restore",
+        label: window.__("Restore"),
         iconLeft: LucideRotateCcw,
       },
       toastMessage: `Restored ${itemString}.`,
@@ -81,7 +81,7 @@ const dialogData = computed(() => {
         "will be moved to Trash.<br/><br/> Items in trash are deleted forever after 30 days.",
       url: "drive.api.files.remove_or_restore",
       button: {
-        label: "Move to Trash",
+        label: window.__("Move to Trash"),
         theme: "red",
         variant: "subtle",
       },
@@ -105,7 +105,7 @@ const dialogData = computed(() => {
       message:
         " will be deleted - you can no longer access it.<br/><br/> <span class=font-semibold>This is an irreversible action.<span>",
       button: {
-        label: "Delete — forever.",
+        label: window.__("Delete — forever."),
         theme: "red",
         iconLeft: LucideTrash,
         variant: "solid",
@@ -113,22 +113,21 @@ const dialogData = computed(() => {
       toastMessage: `Deleted ${itemString}.`,
     },
     "cta-recents": {
-      title: "Are you sure?",
-      message: "All your recently viewed files will be cleared.",
-      button: { label: "Clear" },
+      title: window.__("Are you sure?"),
+      message: window.__("All your recently viewed files will be cleared."),
+      button: { label: window.__("Clear") },
       resource: clearRecent,
     },
     "cta-favourites": {
-      title: "Are you sure?",
-      message: "All your favourite items will be cleared.",
-      button: { label: "Clear" },
+      title: window.__("Are you sure?"),
+      message: window.__("All your favourite items will be cleared."),
+      button: { label: window.__("Clear") },
       resource: toggleFav,
     },
     "cta-trash": {
-      title: "Clear your Trash",
-      message:
-        "All items in your Trash will be deleted forever. <br/><br/> <span class=font-semibold>This is an irreversible process.</span>",
-      button: { label: "Delete", variant: "solid", iconLeft: LucideTrash },
+      title: window.__("Clear your Trash"),
+      message: window.__("All items in your Trash will be deleted forever. <br/><br/> <span class=font-semibold>This is an irreversible process.</span>"),
+      button: { label: window.__("Delete"), variant: "solid", iconLeft: LucideTrash },
       resource: clearTrash,
     },
   }
