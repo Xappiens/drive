@@ -134,7 +134,7 @@ msgstr "Caracteres"
 
 #: frontend/src/components/Navbar.vue:301
 msgid "Clear"
-msgstr "Quitar"
+msgstr "Limpiar"
 
 #. Label of the color (Data) field in DocType 'Drive File'
 #. Label of the color (Data) field in DocType 'Drive Tag'
@@ -371,7 +371,7 @@ msgstr "Correo electrónico"
 
 #: frontend/src/components/Navbar.vue:307
 msgid "Empty"
-msgstr "Vacío"
+msgstr "Vaciar"
 
 #. Label of the enabled (Check) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
@@ -1317,7 +1317,7 @@ msgid "Can upload"
 msgstr "Puede subir"
 
 msgid "Remove"
-msgstr "Quitar"
+msgstr "Eliminar"
 
 msgid "Rename"
 msgstr "Renombrar"
@@ -2023,3 +2023,6 @@ msgstr "Hecho"
 
 msgid "Drop to upload"
 msgstr "Suelta aquí para subir"
+
+msgid "Sample files"
+msgstr "Archivos de ejemplo"

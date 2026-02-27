@@ -19,8 +19,13 @@ from drive.utils.files import FileManager
 from .files import create_folder, get_upload_path
 
 
-DEMO_FOLDER_TITLE = "Archivos de ejemplo"
-DEMO_TEAM_TITLE = "Archivos de ejemplo"
+# Títulos traducibles: en .po (es, en, etc.) con msgid "Sample files"
+def _demo_folder_title():
+    return frappe._("Sample files")
+
+
+def _demo_team_title():
+    return frappe._("Sample files")
 
 
 def get_demo_files_path():
@@ -41,9 +46,10 @@ def get_or_create_demo_team():
     Obtiene o crea el equipo "Archivos de ejemplo" y asegura que todos
     los usuarios con Drive sean miembros. Así los archivos demo son públicos.
     """
+    demo_team_title = _demo_team_title()
     existing = frappe.db.exists(
         "Drive Team",
-        {"title": DEMO_TEAM_TITLE, "owner": "Administrator", "personal": 0},
+        {"title": demo_team_title, "owner": "Administrator", "personal": 0},
     )
     if existing:
         team_name = existing
@@ -55,7 +61,7 @@ def get_or_create_demo_team():
             team = frappe.get_doc(
                 {
                     "doctype": "Drive Team",
-                    "title": DEMO_TEAM_TITLE,
+                    "title": demo_team_title,
                     "personal": 0,
                 }
             )
@@ -94,13 +100,14 @@ def load_demo_files(team=None):
     if not demo_path.exists():
         frappe.throw(f"No existe la carpeta de archivos de ejemplo: {demo_path}")
 
-    # Obtener o crear carpeta "Archivos de ejemplo"
+    demo_folder_title = _demo_folder_title()
+    # Obtener o crear carpeta de ejemplo (título traducido al idioma actual)
     existing = frappe.db.exists(
         "Drive File",
         {
             "parent_entity": home_folder["name"],
             "is_group": 1,
-            "title": DEMO_FOLDER_TITLE,
+            "title": demo_folder_title,
             "is_active": 1,
             "team": team,
         },
@@ -108,7 +115,7 @@ def load_demo_files(team=None):
     if existing:
         demo_folder_name = existing
     else:
-        folder_doc = create_folder(team, DEMO_FOLDER_TITLE, parent=home_folder["name"])
+        folder_doc = create_folder(team, demo_folder_title, parent=home_folder["name"])
         demo_folder_name = folder_doc.name
 
     manager = FileManager()
@@ -155,10 +162,11 @@ def load_demo_files(team=None):
                     pass
 
     return {
-        "folder": DEMO_FOLDER_TITLE,
+        "folder": demo_folder_title,
         "folder_entity": demo_folder_name,
+        "demo_team": team,
         "files_created": created,
-        "message": f"Se crearon {len(created)} archivo(s) de ejemplo en '{DEMO_FOLDER_TITLE}'.",
+        "message": f"Se crearon {len(created)} archivo(s) de ejemplo en '{demo_folder_title}'.",
     }
 
 

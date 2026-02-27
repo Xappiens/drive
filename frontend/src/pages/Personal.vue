@@ -13,6 +13,7 @@
 
 <script setup>
 import { computed, onMounted } from "vue"
+import { useRouter } from "vue-router"
 import GenericPage from "@/components/GenericPage.vue"
 import { getPersonal, loadDemoFiles } from "@/resources/files"
 import { useStore } from "vuex"
@@ -22,6 +23,7 @@ import emitter from "@/emitter"
 import { toast } from "@/utils/toasts"
 
 const store = useStore()
+const router = useRouter()
 store.commit("setCurrentFolder", { name: "", team: "" })
 allUsers.fetch(null)
 
@@ -33,8 +35,14 @@ onMounted(() => {
 
 async function loadDemoAndRefresh() {
   const out = await loadDemoFiles.submit()
-  if (out?.message) toast({ title: __('Done'), text: out.message })
-  emitter.emit('refresh')
+  if (!out) return
+  if (out.message) toast({ title: __('Done'), text: out.message })
+  // Los archivos están en el equipo "Archivos de ejemplo"; redirigir ahí para verlos
+  if (out.folder_entity) {
+    router.push({ name: 'Folder', params: { entityName: out.folder_entity } })
+  } else if (out.demo_team) {
+    router.push({ name: 'Team', params: { team: out.demo_team } })
+  }
 }
 
 const emptyState = computed(() => ({
