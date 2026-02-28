@@ -11,7 +11,7 @@
       </h3>
     </div>
     <Button
-      label="Transfer"
+      :label="__('Transfer')"
       variant="solid"
       @click="emitter.emit('uploadFile')"
     />

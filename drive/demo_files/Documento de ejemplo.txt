@@ -1,0 +1,11 @@
+Documento de ejemplo
+====================
+
+Este es un archivo de texto de demostración para Drive.
+
+Puedes usar estos archivos para:
+• Mostrar la interfaz a tu equipo
+• Probar la búsqueda y la organización
+• Practicar compartir carpetas y archivos
+
+¡Borra esta carpeta "Archivos de ejemplo" cuando ya no la necesites!

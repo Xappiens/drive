@@ -4,7 +4,7 @@
     v-model:collapsed="isCollapsed"
     class="hidden sm:flex"
     :header="{
-      title: 'Drive',
+      title: __('Drive'),
       subtitle: $store.state.user.fullName,
       menuItems: settingsItems,
       logo: FrappeDriveLogo,
@@ -57,7 +57,7 @@ import FrappeDriveLogo from "@/components/FrappeDriveLogo.vue"
 import StorageBar from "./StorageBar.vue"
 import { Sidebar, createResource } from "frappe-ui"
 import SidebarItem from "frappe-ui/src/components/Sidebar/SidebarItem.vue"
-import { notifCount, apps } from "@/resources/permissions"
+import { notifCount, apps, integrationConfig } from "@/resources/permissions"
 import { getTeams } from "@/resources/files"
 import { dynamicList } from "@/utils/files"
 
@@ -72,6 +72,7 @@ import LucideInbox from "~icons/lucide/inbox"
 import LucideSearch from "~icons/lucide/search"
 import LucideFileText from "~icons/lucide/file-text"
 import LucideGalleryVerticalEnd from "~icons/lucide/gallery-vertical-end"
+import LucidePaperclip from "~icons/lucide/paperclip"
 
 import SettingsDialog from "@/components/Settings/SettingsDialog.vue"
 import ShortcutsDialog from "@/components/ShortcutsDialog.vue"
@@ -91,6 +92,7 @@ const router = useRouter()
 notifCount.fetch()
 getTeams.fetch()
 apps.fetch()
+integrationConfig.fetch()
 
 const teamExists = createResource({
   url: "drive.utils.get_default_team",
@@ -156,7 +158,7 @@ const settingsItems = computed(() => [
       },
       {
         icon: LucideMoon,
-        label: "Toggle theme",
+        label: __("Toggle theme"),
         onClick: toggleTheme,
       },
     ],
@@ -218,31 +220,31 @@ const sidebarItems = computed(() => {
       ],
     },
     {
-      label: "Drive",
+      label: __("Drive"),
       items: [
         {
-          label: "Home",
+          label: __("Home"),
           to: `/`,
           icon: LucideHome,
           isActive: first.name == "Home",
           accessKey: "h",
         },
         {
-          label: "Recents",
+          label: __("Recents"),
           to: `/recents`,
           icon: LucideClock,
           isActive: first.name == "Recents",
           accessKey: "r",
         },
         {
-          label: "Shared",
+          label: __("Shared"),
           to: `/shared`,
           icon: LucideUsers,
           isActive: first.name == "Shared",
           accessKey: "s",
         },
         {
-          label: "Trash",
+          label: __("Trash"),
           to: `/trash`,
           icon: LucideTrash,
           isActive: first.name == "Trash",
@@ -250,13 +252,13 @@ const sidebarItems = computed(() => {
       ],
     },
     {
-      label: "Teams",
+      label: __("Teams"),
       cond: getTeams.data && Object.keys(getTeams.data).length > 0,
       collapsible: true,
       items:
         getTeams.data &&
         Object.values(getTeams.data).map((team) => ({
-          label: team.title,
+          label: team.title === "Sample files" ? __("Sample files") : team.title,
           to: `/t/${team.name}/`,
           icon: h(icons[team.icon || "building"]),
           isActive: team.name === first.name,
@@ -264,29 +266,37 @@ const sidebarItems = computed(() => {
         })),
     },
     {
-      label: "Views",
+      label: __("Views"),
       collapsible: true,
       items: dynamicList([
         {
-          label: "Favourites",
+          label: __("Favourites"),
           to: `/favourites`,
           icon: LucideStar,
           isActive: first.name == "Favourites",
           accessKey: "f",
         },
         {
-          label: "Documents",
+          label: __("Documents"),
           to: `/documents`,
           icon: LucideFileText,
           isActive: first.name == "Documents",
           accessKey: "d",
         },
         {
-          label: "Slides",
+          label: __("Slides"),
           to: `/presentations`,
           icon: LucideGalleryVerticalEnd,
           isActive: first.name == "Slides",
           cond: apps.data?.find?.((k) => k.name === "slides"),
+        },
+        {
+          label: __("Attachments"),
+          to: `/attachments`,
+          icon: LucidePaperclip,
+          isActive: first.name == "Attachments",
+          accessKey: "a",
+          cond: integrationConfig.data?.enabled && integrationConfig.data?.show_attachments_in_drive,
         },
       ]),
     },
@@ -297,9 +307,9 @@ const draggedSpace = ref(null)
 const handleDrop = (e, space) => {
   draggedSpace.value = null
   const file_name = e.dataTransfer.getData("application/x-filename")
-  if (space.label === "Trash") {
+  if (space.to === "/trash") {
     emitter.emit("remove-file", file_name)
-  } else if (space.label === "Home") {
+  } else if (space.to === "/") {
     move.submit(
       { entity_names: [file_name] },
       { onSuccess: () => emitter.emit("remove-file-ui", file_name) }

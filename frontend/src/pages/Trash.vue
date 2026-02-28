@@ -3,7 +3,7 @@
     :get-entities="getTrash"
     :empty="{
       icon: LucideTrash,
-      title: 'Trash is empty',
+      title: __('Trash is empty'),
       description: 'Trashed files will show up here - you can restore them.',
     }"
   />

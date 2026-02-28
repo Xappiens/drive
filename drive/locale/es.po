@@ -21,12 +21,12 @@ msgstr ""
 #. Description of the 'Access Level' (Int) field in DocType 'Drive Team Member'
 #: drive/drive/doctype/drive_team_member/drive_team_member.json
 msgid "0 for Guest, 1 for User, 2 for Manager"
-msgstr ""
+msgstr "0 para Invitado, 1 para Usuario, 2 para Administrador"
 
 #. Header text in the Drive Workspace
 #: drive/drive/workspace/drive/drive.json
 msgid "<span style=\"font-size: 16px;\">Manage Drive</span>"
-msgstr ""
+msgstr "<span style=\"font-size: 16px;\">Gestionar Drive</span>"
 
 #. Label of the aws_key (Data) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
@@ -36,7 +36,7 @@ msgstr ""
 #. Label of the aws_secret (Password) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "AWS Secret"
-msgstr ""
+msgstr "Secreto AWS"
 
 #. Option for the 'Status' (Select) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
@@ -46,17 +46,17 @@ msgstr "Aceptado"
 #. Label of the accepted_on (Datetime) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
 msgid "Accepted On"
-msgstr ""
+msgstr "Aceptado el"
 
 #. Label of the access_level (Int) field in DocType 'Drive Team Member'
 #: drive/drive/doctype/drive_team_member/drive_team_member.json
 msgid "Access Level"
-msgstr ""
+msgstr "Nivel de acceso"
 
 #. Name of a DocType
 #: drive/drive/doctype/account_request/account_request.json
 msgid "Account Request"
-msgstr ""
+msgstr "Solicitud de cuenta"
 
 #. Label of the action_type (Select) field in DocType 'Drive Entity Activity
 #. Log'
@@ -97,7 +97,7 @@ msgstr "Todos"
 #. Label of the allow_download (Check) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
 msgid "Allow Download"
-msgstr ""
+msgstr "Permitir descarga"
 
 #: frontend/src/components/Sidebar.vue:125
 msgid "Apps"
@@ -106,12 +106,12 @@ msgstr "Apps"
 #. Label of the as_guest (Check) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
 msgid "As Guest"
-msgstr ""
+msgstr "Como invitado"
 
 #. Label of the auto_detect_links (Check) field in DocType 'Drive Settings'
 #: drive/drive/doctype/drive_settings/drive_settings.json
 msgid "Auto Detect Links"
-msgstr ""
+msgstr "Detectar enlaces automáticamente"
 
 #. Option for the 'Status' (Select) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
@@ -126,15 +126,15 @@ msgstr "Por"
 #. Activity Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "Can contain whatever meta value needed for the access log. Ex: Used to store access level 1,2,3 etc on a DriveDocShare"
-msgstr ""
+msgstr "Puede contener cualquier valor meta necesario para el registro de acceso. Ej.: se usa para almacenar nivel de acceso 1, 2, 3, etc. en un DriveDocShare"
 
 #: frontend/src/components/InfoPopup.vue:77
 msgid "Characters"
-msgstr ""
+msgstr "Caracteres"
 
 #: frontend/src/components/Navbar.vue:301
 msgid "Clear"
-msgstr "Quitar"
+msgstr "Limpiar"
 
 #. Label of the color (Data) field in DocType 'Drive File'
 #. Label of the color (Data) field in DocType 'Drive Tag'
@@ -194,7 +194,7 @@ msgstr "Eliminar"
 
 #: frontend/src/components/InfoPopup.vue:157
 msgid "Developer"
-msgstr ""
+msgstr "Desarrollador"
 
 #. Label of the disk_section (Section Break) field in DocType 'Drive Disk
 #. Settings'
@@ -205,7 +205,7 @@ msgstr ""
 #. Label of the flat (Check) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Do not mimic folder/file structure"
-msgstr ""
+msgstr "No imitar la estructura de carpetas/archivos"
 
 #. Label of the notif_doctype_name (Dynamic Link) field in DocType 'Drive
 #. Notification'
@@ -222,7 +222,7 @@ msgstr "Documento"
 #. Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "Document Field"
-msgstr ""
+msgstr "Campo del documento"
 
 #. Label of the notif_doctype (Link) field in DocType 'Drive Notification'
 #: drive/drive/doctype/drive_notification/drive_notification.json
@@ -241,27 +241,27 @@ msgstr "Descargar"
 #. Name of a Workspace
 #: drive/config/desktop.py:11 drive/drive/workspace/drive/drive.json
 msgid "Drive"
-msgstr ""
+msgstr "Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_comment/drive_comment.json
 msgid "Drive Comment"
-msgstr ""
+msgstr "Comentario de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_desktop_client/drive_desktop_client.json
 msgid "Drive Desktop Client"
-msgstr ""
+msgstr "Cliente de escritorio de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Drive Disk Settings"
-msgstr ""
+msgstr "Configuración de disco de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_doc_version/drive_doc_version.json
 msgid "Drive Doc Version"
-msgstr ""
+msgstr "Versión de documento de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_document/drive_document.json
@@ -271,27 +271,27 @@ msgstr ""
 #. Name of a DocType
 #: drive/drive/doctype/drive_document_version/drive_document_version.json
 msgid "Drive Document Version"
-msgstr ""
+msgstr "Versión de documento de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "Drive Entity Activity Log"
-msgstr ""
+msgstr "Registro de actividad de entidad de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_entity_log/drive_entity_log.json
 msgid "Drive Entity Log"
-msgstr ""
+msgstr "Registro de entidad de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_entity_tag/drive_entity_tag.json
 msgid "Drive Entity Tag"
-msgstr ""
+msgstr "Etiqueta de entidad de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_favourite/drive_favourite.json
 msgid "Drive Favourite"
-msgstr ""
+msgstr "Favorito de Drive"
 
 #. Label of the entity (Link) field in DocType 'Drive Favourite'
 #. Name of a DocType
@@ -303,12 +303,12 @@ msgstr ""
 #. Name of a DocType
 #: drive/drive/doctype/drive_file_update/drive_file_update.json
 msgid "Drive File Update"
-msgstr ""
+msgstr "Actualización de archivo de Drive"
 
 #. Label of the root_folder (Data) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Drive Folder"
-msgstr ""
+msgstr "Carpeta de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_notification/drive_notification.json
@@ -318,12 +318,12 @@ msgstr ""
 #. Name of a DocType
 #: drive/drive/doctype/drive_permission/drive_permission.json
 msgid "Drive Permission"
-msgstr ""
+msgstr "Permiso de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_settings/drive_settings.json
 msgid "Drive Settings"
-msgstr ""
+msgstr "Configuración de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_tag/drive_tag.json
@@ -333,26 +333,26 @@ msgstr ""
 #. Name of a DocType
 #: drive/drive/doctype/drive_team/drive_team.json
 msgid "Drive Team"
-msgstr ""
+msgstr "Equipo de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_team_member/drive_team_member.json
 msgid "Drive Team Member"
-msgstr ""
+msgstr "Miembro del equipo de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_transfer/drive_transfer.json
 msgid "Drive Transfer"
-msgstr ""
+msgstr "Transferencia de Drive"
 
 #. Name of a DocType
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
 msgid "Drive User Invitation"
-msgstr ""
+msgstr "Invitación de usuario de Drive"
 
 #: frontend/src/components/Settings/UserListSettings.vue:533
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: frontend/src/components/Settings/ProfileSettings.vue:26
 msgid "Edit Profile"
@@ -360,18 +360,18 @@ msgstr "Editar perfil"
 
 #: frontend/src/components/Settings/ProfileSettings.vue:20
 msgid "Edit profile"
-msgstr ""
+msgstr "Editar perfil"
 
 #. Label of the email (Data) field in DocType 'Account Request'
 #. Label of the email (Data) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/account_request/account_request.json
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: frontend/src/components/Navbar.vue:307
 msgid "Empty"
-msgstr "Vacío"
+msgstr "Vaciar"
 
 #. Label of the enabled (Check) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
@@ -402,13 +402,13 @@ msgstr "Nombre de la Entidad"
 #. Label of the entity_type (Data) field in DocType 'Drive Notification'
 #: drive/drive/doctype/drive_notification/drive_notification.json
 msgid "Entity Type"
-msgstr ""
+msgstr "Tipo de entidad"
 
 #. Description of the 'Endpoint URL' (Data) field in DocType 'Drive Disk
 #. Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Example format: https://s3.ap-south-1.amazonaws.com"
-msgstr ""
+msgstr "Formato de ejemplo: https://s3.ap-south-1.amazonaws.com"
 
 #. Option for the 'Status' (Select) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
@@ -418,7 +418,7 @@ msgstr ""
 #: frontend/src/components/GenericPage.vue:355
 #: frontend/src/components/Navbar.vue:249
 msgid "Favourite"
-msgstr ""
+msgstr "Favorito"
 
 #. Label of the file_size (Int) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
@@ -432,7 +432,7 @@ msgstr ""
 
 #: frontend/src/components/DriveToolBar.vue:40
 msgid "Find"
-msgstr ""
+msgstr "Buscar"
 
 #: frontend/src/components/Settings/ProfileSettings.vue:82
 msgid "First Name"
@@ -441,7 +441,7 @@ msgstr "Primer Nombre"
 #. Label of the from_user (Link) field in DocType 'Drive Notification'
 #: drive/drive/doctype/drive_notification/drive_notification.json
 msgid "From User"
-msgstr ""
+msgstr "De usuario"
 
 #. Label of the general_section (Section Break) field in DocType 'Drive Disk
 #. Settings'
@@ -458,7 +458,7 @@ msgstr ""
 #. Label of a shortcut in the Drive Workspace
 #: drive/drive/workspace/drive/drive.json
 msgid "Go to Drive"
-msgstr ""
+msgstr "Ir a Drive"
 
 #. Name of a role
 #: drive/drive/doctype/drive_document/drive_document.json
@@ -469,7 +469,7 @@ msgstr "Invitado"
 
 #: frontend/src/utils/files.js:209
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #. Label of the ip_address (Data) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
@@ -485,7 +485,7 @@ msgstr "Icono"
 #. Description of the 'Quota' (Int) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_team/drive_team.json
 msgid "In MB"
-msgstr ""
+msgstr "En MB"
 
 #: frontend/src/components/Sidebar.vue:212
 msgid "Inbox"
@@ -494,17 +494,17 @@ msgstr "Bandeja de entrada"
 #. Label of the invite (Link) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "Invite"
-msgstr ""
+msgstr "Invitar"
 
 #. Label of the is_active (Int) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
 msgid "Is Active"
-msgstr ""
+msgstr "Está activo"
 
 #. Label of the is_group (Check) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
 msgid "Is Group"
-msgstr ""
+msgstr "Es grupo"
 
 #. Label of the is_link (Check) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
@@ -519,25 +519,25 @@ msgstr "Es privado"
 #. Label of the resolved (Check) field in DocType 'Drive Comment'
 #: drive/drive/doctype/drive_comment/drive_comment.json
 msgid "Is Resolved"
-msgstr ""
+msgstr "Está resuelto"
 
 #. Label of the jwt_key (Data) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "JWT Key"
-msgstr ""
+msgstr "Clave JWT"
 
 #: frontend/src/components/ListView.vue:178
 msgid "Last Accessed"
-msgstr ""
+msgstr "Último acceso"
 
 #. Label of the last_interaction (Datetime) field in DocType 'Drive Entity Log'
 #: drive/drive/doctype/drive_entity_log/drive_entity_log.json
 msgid "Last Interaction"
-msgstr ""
+msgstr "Última interacción"
 
 #: frontend/src/components/ListView.vue:170
 msgid "Last Modified"
-msgstr ""
+msgstr "Última modificación"
 
 #: frontend/src/components/Settings/ProfileSettings.vue:87
 msgid "Last Name"
@@ -567,12 +567,12 @@ msgstr "Cerrar sesión"
 #. Label of the login_count (Int) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "Login Count"
-msgstr ""
+msgstr "Número de inicios de sesión"
 
 #. Label of the mime_type (Data) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
 msgid "MIME Type"
-msgstr ""
+msgstr "Tipo MIME"
 
 #: frontend/src/components/InfoPopup.vue:106
 #: frontend/src/components/Sidebar.vue:120
@@ -582,7 +582,7 @@ msgstr "Gestionar"
 #. Label of a shortcut in the Drive Workspace
 #: drive/drive/workspace/drive/drive.json
 msgid "Manage Disk Settings"
-msgstr ""
+msgstr "Gestionar configuración de disco"
 
 #. Label of the manual (Check) field in DocType 'Drive Doc Version'
 #: drive/drive/doctype/drive_doc_version/drive_doc_version.json
@@ -609,37 +609,37 @@ msgstr "Mensaje"
 #. Label of the meta_value (Data) field in DocType 'Drive Entity Activity Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "Meta Value"
-msgstr ""
+msgstr "Valor meta"
 
 #. Label of the _modified (Datetime) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
 #: frontend/src/components/DriveToolBar.vue:251
 #: frontend/src/components/InfoPopup.vue:41
 msgid "Modified"
-msgstr ""
+msgstr "Modificado"
 
 #: frontend/src/components/GenericPage.vue:334
 #: frontend/src/components/Navbar.vue:231
 msgid "Move"
-msgstr ""
+msgstr "Mover"
 
 #: frontend/src/components/DriveToolBar.vue:243
 #: frontend/src/components/ListView.vue:131
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: frontend/src/components/Settings/TagSettings.vue:12
 #: frontend/src/components/Settings/UserListSettings.vue:9
 msgid "New"
-msgstr ""
+msgstr "Nuevo"
 
 #: frontend/src/components/Settings/NewTagDialog.vue:4
 msgid "New Tag"
-msgstr ""
+msgstr "Nueva etiqueta"
 
 #: frontend/src/components/Settings/UserListSettings.vue:372
 msgid "New Team"
-msgstr ""
+msgstr "Nuevo equipo"
 
 #. Label of the new_value (Data) field in DocType 'Drive Entity Activity Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
@@ -648,36 +648,36 @@ msgstr "Nuevo Valor"
 
 #: frontend/src/components/TagInput.vue:18
 msgid "No tags"
-msgstr ""
+msgstr "Sin etiquetas"
 
 #: drive/public/js/ff_integration.bundle.js:29
 msgid "No teams available"
-msgstr ""
+msgstr "No hay equipos disponibles"
 
 #. Label of the oauth_signup (Check) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "OAuth Signup"
-msgstr ""
+msgstr "Registro OAuth"
 
 #. Label of the otp (Data) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "OTP"
-msgstr ""
+msgstr "OTP"
 
 #. Label of the otp_generated_at (Datetime) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "OTP Generated at"
-msgstr ""
+msgstr "OTP generado el"
 
 #. Label of the old_name (Data) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
 msgid "Old Name"
-msgstr ""
+msgstr "Nombre anterior"
 
 #. Label of the old_value (Data) field in DocType 'Drive Entity Activity Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "Old Value"
-msgstr ""
+msgstr "Valor anterior"
 
 #. Description of the 'S3 Bucket' (Data) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_team/drive_team.json
@@ -686,12 +686,12 @@ msgstr ""
 
 #: frontend/src/components/GenericPage.vue:304
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: drive/drive/doctype/drive_file/drive_file.js:9
 #: drive/drive/doctype/drive_team/drive_team.js:6
 msgid "Open in Drive"
-msgstr ""
+msgstr "Abrir en Drive"
 
 #: frontend/src/components/Sidebar.vue:165
 msgid "Others"
@@ -706,7 +706,7 @@ msgstr "Propietario"
 #. Label of the parent_entity (Link) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
 msgid "Parent Entity"
-msgstr ""
+msgstr "Entidad padre"
 
 #. Label of the path (Text) field in DocType 'Drive File'
 #. Label of the path (Data) field in DocType 'Drive Transfer'
@@ -731,7 +731,7 @@ msgstr "Personal"
 
 #: frontend/src/components/Settings/ProfileSettings.vue:94
 msgid "Preferences"
-msgstr ""
+msgstr "Preferencias"
 
 #. Label of the prefix (Data) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_team/drive_team.json
@@ -740,12 +740,12 @@ msgstr "Prefijo"
 
 #: frontend/src/components/GenericPage.vue:298
 msgid "Preview"
-msgstr ""
+msgstr "Vista previa"
 
 #. Label of the preview_size (Int) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Preview size"
-msgstr ""
+msgstr "Tamaño de vista previa"
 
 #: frontend/src/components/Settings/ProfileSettings.vue:3
 msgid "Profile"
@@ -754,22 +754,22 @@ msgstr "Perfil"
 #. Option for the 'Status' (Select) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
 msgid "Proposed"
-msgstr ""
+msgstr "Propuesto"
 
 #. Description of the 'Updates' (Table) field in DocType 'Drive Desktop Client'
 #: drive/drive/doctype/drive_desktop_client/drive_desktop_client.json
 msgid "Queue for all the un-applied changes in the desktop."
-msgstr ""
+msgstr "Cola de todos los cambios no aplicados en el escritorio."
 
 #. Label of the quota (Int) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_team/drive_team.json
 msgid "Quota"
-msgstr ""
+msgstr "Cuota"
 
 #. Label of the raw_content (Long Text) field in DocType 'Drive Document'
 #: drive/drive/doctype/drive_document/drive_document.json
 msgid "Raw Content"
-msgstr ""
+msgstr "Contenido bruto"
 
 #. Label of the read (Check) field in DocType 'Drive Notification'
 #. Label of the read (Check) field in DocType 'Drive Permission'
@@ -780,32 +780,32 @@ msgstr "Leer"
 
 #: frontend/src/components/InfoPopup.vue:85
 msgid "Reading time"
-msgstr ""
+msgstr "Tiempo de lectura"
 
 #. Label of the referral_source (Data) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "Referral Source"
-msgstr ""
+msgstr "Origen de referencia"
 
 #. Label of the referrer_data (Section Break) field in DocType 'Account
 #. Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "Referrer Data"
-msgstr ""
+msgstr "Datos del referidor"
 
 #. Label of the referrer_id (Data) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "Referrer ID"
-msgstr ""
+msgstr "ID del referidor"
 
 #: frontend/src/components/GenericPage.vue:381
 msgid "Remove from Recents"
-msgstr ""
+msgstr "Quitar de recientes"
 
 #: frontend/src/components/GenericPage.vue:342
 #: frontend/src/components/Navbar.vue:237
 msgid "Rename"
-msgstr ""
+msgstr "Renombrar"
 
 #. Label of the replies (Table) field in DocType 'Drive Comment'
 #: drive/drive/doctype/drive_comment/drive_comment.json
@@ -821,30 +821,30 @@ msgstr "ID de la Solicitud"
 #. Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "S3"
-msgstr ""
+msgstr "S3"
 
 #. Label of the bucket (Data) field in DocType 'Drive Disk Settings'
 #. Label of the s3_bucket (Data) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 #: drive/drive/doctype/drive_team/drive_team.json
 msgid "S3 Bucket"
-msgstr ""
+msgstr "Bucket S3"
 
 #: frontend/src/components/EmojiPicker.vue:22
 #: frontend/src/components/Sidebar.vue:207
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: frontend/src/components/TagColorInput.vue:36
 msgid "Set Color"
-msgstr ""
+msgstr "Establecer color"
 
 #. Label of the settings (JSON) field in DocType 'Drive Document'
 #: drive/drive/doctype/drive_document/drive_document.json
 #: frontend/src/components/Settings/SettingsDialog.vue:16
 #: frontend/src/components/Sidebar.vue:170
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #. Option for the 'Type' (Select) field in DocType 'Drive Notification'
 #. Label of the share (Check) field in DocType 'Drive Permission'
@@ -862,44 +862,44 @@ msgstr "Compartido"
 #: frontend/src/components/GenericPage.vue:348
 #: frontend/src/components/Navbar.vue:243
 msgid "Show Info"
-msgstr ""
+msgstr "Ver información"
 
 #. Label of the signature_version (Data) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Signature Version"
-msgstr ""
+msgstr "Versión de firma"
 
 #. Label of the signed_up (Check) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "Signed Up"
-msgstr ""
+msgstr "Registrado"
 
 #. Label of the single_click (Check) field in DocType 'Drive Settings'
 #: drive/drive/doctype/drive_settings/drive_settings.json
 msgid "Single Click"
-msgstr ""
+msgstr "Clic único"
 
 #: frontend/src/components/DriveToolBar.vue:255
 #: frontend/src/components/InfoPopup.vue:33
 #: frontend/src/components/ListView.vue:186
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 #: frontend/src/components/DriveToolBar.vue:271
 msgid "Smart"
-msgstr ""
+msgstr "Inteligente"
 
 #. Label of the snapshot (Long Text) field in DocType 'Drive Doc Version'
 #. Label of the snapshot (Long Text) field in DocType 'Drive Document Version'
 #: drive/drive/doctype/drive_doc_version/drive_doc_version.json
 #: drive/drive/doctype/drive_document_version/drive_document_version.json
 msgid "Snapshot Data"
-msgstr ""
+msgstr "Datos de instantánea"
 
 #. Label of the snapshot_size (Int) field in DocType 'Drive Document Version'
 #: drive/drive/doctype/drive_document_version/drive_document_version.json
 msgid "Snapshot Size"
-msgstr ""
+msgstr "Tamaño de instantánea"
 
 #: frontend/src/components/InfoPopup.vue:66
 msgid "Stats"
@@ -908,7 +908,7 @@ msgstr "Estadísticas"
 #. Label of the status (Select) field in DocType 'Drive User Invitation'
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #. Label of the storage (Int) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_team/drive_team.json
@@ -916,7 +916,7 @@ msgstr ""
 #: frontend/src/components/Settings/StorageSettings.vue:3
 #: frontend/src/components/StorageBar.vue:8
 msgid "Storage"
-msgstr ""
+msgstr "Almacenamiento"
 
 #: frontend/src/components/Sidebar.vue:154
 msgid "Support"
@@ -936,12 +936,12 @@ msgstr "Soporte"
 #: drive/drive/doctype/drive_transfer/drive_transfer.json
 #: drive/drive/doctype/drive_user_invitation/drive_user_invitation.json
 msgid "System Manager"
-msgstr ""
+msgstr "Administrador del sistema"
 
 #. Label of the tag (Link) field in DocType 'Drive Entity Tag'
 #: drive/drive/doctype/drive_entity_tag/drive_entity_tag.json
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 #. Label of the tags (Table) field in DocType 'Drive File'
 #: drive/drive/doctype/drive_file/drive_file.json
@@ -967,23 +967,23 @@ msgstr "Equipo"
 #. Label of the team_domain (Data) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_team/drive_team.json
 msgid "Team Domain"
-msgstr ""
+msgstr "Dominio del equipo"
 
 #. Label of the team_prefix (Select) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Team Prefix"
-msgstr ""
+msgstr "Prefijo del equipo"
 
 #. Label of a shortcut in the Drive Workspace
 #: drive/drive/workspace/drive/drive.json
 #: frontend/src/components/Settings/UserListSettings.vue:4
 msgid "Teams"
-msgstr ""
+msgstr "Equipos"
 
 #. Label of the thumbnail_prefix (Data) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Thumbnail prefix"
-msgstr ""
+msgstr "Prefijo de miniatura"
 
 #. Label of the title (Data) field in DocType 'Drive Doc Version'
 #. Label of the title (Data) field in DocType 'Drive Document Version'
@@ -999,7 +999,7 @@ msgstr ""
 #: drive/drive/doctype/drive_transfer/drive_transfer.json
 #: frontend/src/components/Settings/NewTagDialog.vue:19
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #. Label of the to_user (Link) field in DocType 'Drive Notification'
 #: drive/drive/doctype/drive_notification/drive_notification.json
@@ -1013,17 +1013,17 @@ msgstr "Al usuario"
 #: frontend/src/components/DriveToolBar.vue:259
 #: frontend/src/components/InfoPopup.vue:27
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. Label of the url_args (Code) field in DocType 'Account Request'
 #: drive/drive/doctype/account_request/account_request.json
 msgid "URL Args"
-msgstr ""
+msgstr "Argumentos URL"
 
 #: frontend/src/components/GenericPage.vue:368
 #: frontend/src/components/Navbar.vue:260
 msgid "Unfavourite"
-msgstr ""
+msgstr "Quitar de favoritos"
 
 #. Label of the updates (Table) field in DocType 'Drive Desktop Client'
 #: drive/drive/doctype/drive_desktop_client/drive_desktop_client.json
@@ -1039,7 +1039,7 @@ msgstr "Subir"
 #. Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "Used to configure maximum file sizes of in-browser previews (in megabytes)."
-msgstr ""
+msgstr "Se usa para configurar el tamaño máximo de archivos en las vistas previas del navegador (en megabytes)."
 
 #. Label of the user (Link) field in DocType 'Drive Desktop Client'
 #. Label of the user (Link) field in DocType 'Drive Entity Log'
@@ -1054,7 +1054,7 @@ msgstr ""
 #: drive/drive/doctype/drive_settings/drive_settings.json
 #: drive/drive/doctype/drive_team_member/drive_team_member.json
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #. Label of the users (Table) field in DocType 'Drive Team'
 #: drive/drive/doctype/drive_team/drive_team.json
@@ -1069,15 +1069,15 @@ msgstr "Versión"
 #. Label of the versions (Table) field in DocType 'Drive Document'
 #: drive/drive/doctype/drive_document/drive_document.json
 msgid "Versions"
-msgstr ""
+msgstr "Versiones"
 
 #: frontend/src/components/DriveToolBar.vue:26
 msgid "With you"
-msgstr ""
+msgstr "Contigo"
 
 #: frontend/src/components/InfoPopup.vue:69
 msgid "Words"
-msgstr ""
+msgstr "Palabras"
 
 #. Label of the write (Check) field in DocType 'Drive Permission'
 #: drive/drive/doctype/drive_permission/drive_permission.json
@@ -1088,12 +1088,12 @@ msgstr "Escribir"
 #. Settings'
 #: drive/drive/doctype/drive_settings/drive_settings.json
 msgid "Writer"
-msgstr ""
+msgstr "Editor"
 
 #. Label of the writer_settings (JSON) field in DocType 'Drive Settings'
 #: drive/drive/doctype/drive_settings/drive_settings.json
 msgid "Writer Settings"
-msgstr ""
+msgstr "Configuración del editor"
 
 #: frontend/src/components/Settings/StorageSettings.vue:19
 msgid "You"
@@ -1150,7 +1150,7 @@ msgstr "ninguna"
 
 #: frontend/src/components/InfoPopup.vue:141
 msgid "people"
-msgstr ""
+msgstr "personas"
 
 #: frontend/src/components/InfoPopup.vue:141
 msgid "person"
@@ -1166,38 +1166,920 @@ msgstr "renombrar"
 
 #: frontend/src/components/DriveToolBar.vue:9
 msgid "selected"
-msgstr ""
+msgstr "seleccionado"
 
 #. Option for the 'Action Type' (Select) field in DocType 'Drive Entity
 #. Activity Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "share_add"
-msgstr ""
+msgstr "compartir_añadir"
 
 #. Option for the 'Action Type' (Select) field in DocType 'Drive Entity
 #. Activity Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "share_edit"
-msgstr ""
+msgstr "compartir_editar"
 
 #. Option for the 'Action Type' (Select) field in DocType 'Drive Entity
 #. Activity Log'
 #: drive/drive/doctype/drive_entity_activity_log/drive_entity_activity_log.json
 msgid "share_remove"
-msgstr ""
+msgstr "compartir_quitar"
 
 #. Option for the 'Team Prefix' (Select) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "team_id"
-msgstr ""
+msgstr "id_equipo"
 
 #. Option for the 'Team Prefix' (Select) field in DocType 'Drive Disk Settings'
 #: drive/drive/doctype/drive_disk_settings/drive_disk_settings.json
 msgid "team_name"
-msgstr ""
+msgstr "nombre_equipo"
 
 #. Option for the 'Type' (Select) field in DocType 'Drive File Update'
 #: drive/drive/doctype/drive_file_update/drive_file_update.json
 msgid "upload"
 msgstr "subir"
 
+#: frontend sidebar and views
+msgid "Recents"
+msgstr "Recientes"
+
+msgid "Trash"
+msgstr "Papelera"
+
+msgid "Views"
+msgstr "Vistas"
+
+msgid "Favourites"
+msgstr "Favoritos"
+
+msgid "Documents"
+msgstr "Documentos"
+
+msgid "Slides"
+msgstr "Presentaciones"
+
+msgid "Create"
+msgstr "Crear"
+
+msgid "No files yet"
+msgstr "Aún no hay archivos"
+
+msgid "Upload to get started!"
+msgstr "¡Sube archivos para empezar!"
+
+msgid " used out of "
+msgstr " usado de "
+
+msgid "Collapse"
+msgstr "Contraer"
+
+msgid "Document"
+msgstr "Documento"
+
+msgid "Presentation"
+msgstr "Presentación"
+
+msgid "Folder"
+msgstr "Carpeta"
+
+msgid "Link"
+msgstr "Enlace"
+
+msgid "Upload"
+msgstr "Subir"
+
+msgid "Upload File"
+msgstr "Subir archivo"
+
+msgid "Upload Folder"
+msgstr "Subir carpeta"
+
+msgid "Create a Folder"
+msgstr "Crear carpeta"
+
+msgid "New Link"
+msgstr "Nuevo enlace"
+
+msgid "New Presentation"
+msgstr "Nueva presentación"
+
+msgid "Link name"
+msgstr "Nombre del enlace"
+
+msgid "Name:"
+msgstr "Nombre:"
+
+msgid "Restore"
+msgstr "Restaurar"
+
+msgid "Delete forever"
+msgstr "Eliminar para siempre"
+
+msgid "Move to Trash"
+msgstr "Mover a papelera"
+
+msgid "Clear"
+msgstr "Vaciar"
+
+msgid "Toggle theme"
+msgstr "Alternar tema"
+
+msgid "Link detected"
+msgstr "Enlace detectado"
+
+msgid "Are you sure?"
+msgstr "¿Estás seguro?"
+
+msgid "All your recently viewed files will be cleared."
+msgstr "Se borrarán todos tus archivos vistos recientemente."
+
+msgid "All your favourite items will be cleared."
+msgstr "Se borrarán todos tus elementos favoritos."
+
+msgid "All items in your Trash will be deleted forever. <br/><br/> <span class=font-semibold>This is an irreversible process.</span>"
+msgstr "Todos los elementos de la papelera se eliminarán para siempre. <br/><br/> <span class=font-semibold>Este proceso es irreversible.</span>"
+
+msgid "Delete — forever."
+msgstr "Eliminar para siempre."
+
+msgid "Statistics"
+msgstr "Estadísticas"
+
+msgid "Can view"
+msgstr "Puede ver"
+
+msgid "Can edit"
+msgstr "Puede editar"
+
+msgid "Can upload"
+msgstr "Puede subir"
+
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Rename"
+msgstr "Renombrar"
+
+msgid "No recent files"
+msgstr "No hay archivos recientes"
+
+msgid "Try opening something to see it here."
+msgstr "Abre algo para verlo aquí."
+
+msgid "No favourites yet"
+msgstr "Aún no hay favoritos"
+
+msgid "You can save your favourites here."
+msgstr "Puedes guardar tus favoritos aquí."
+
+msgid "Trash is empty"
+msgstr "La papelera está vacía"
+
+msgid "Trashed files will show up here - you can restore them."
+msgstr "Los archivos eliminados aparecerán aquí; puedes restaurarlos."
+
+msgid "No shared files"
+msgstr "No hay archivos compartidos"
+
+msgid "You can share files easily on Drive - try it out!"
+msgstr "Puedes compartir archivos fácilmente en Drive. ¡Pruébalo!"
+
+msgid "Upload failed"
+msgstr "Error al subir"
+
+msgid "OK"
+msgstr "Aceptar"
+
+msgid "Results for"
+msgstr "Resultados para"
+
+msgid "Jump to"
+msgstr "Ir a"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Sync"
+msgstr "Sincronizar"
+
+msgid "Leave"
+msgstr "Salir"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Delete Tag"
+msgstr "Eliminar etiqueta"
+
+msgid "No Tags"
+msgstr "Sin etiquetas"
+
+msgid "Members"
+msgstr "Miembros"
+
+msgid "Invites"
+msgstr "Invitaciones"
+
+msgid "Manager"
+msgstr "Administrador"
+
+msgid "Single click to open files and folders"
+msgstr "Un solo clic para abrir archivos y carpetas"
+
+msgid "Automatically detect links"
+msgstr "Detectar enlaces automáticamente"
+
+msgid "Profile Photo"
+msgstr "Foto de perfil"
+
+msgid "No teams yet. Create one to get started."
+msgstr "Aún no hay equipos. Crea uno para comenzar."
+
+msgid "No invites found."
+msgstr "No se encontraron invitaciones."
+
+msgid "Invited by"
+msgstr "Invitado por"
+
+msgid "Enter email address"
+msgstr "Introduce la dirección de correo"
+
+msgid "Invite as guest"
+msgstr "Invitar como invitado"
+
+msgid "Send Invitation"
+msgstr "Enviar invitación"
+
+msgid "Team Name:"
+msgstr "Nombre del equipo:"
+
+msgid "Optional - allows you to use a different bucket for this team."
+msgstr "Opcional: permite usar un bucket distinto para este equipo."
+
+msgid "Optional - allows you to use a specific folder inside the bucket."
+msgstr "Opcional: permite usar una carpeta concreta dentro del bucket."
+
+msgid "Invite people to"
+msgstr "Invitar a"
+
+msgid "A person from your domain has joined Drive."
+msgstr "Una persona de tu dominio se ha unido a Drive."
+
+msgid "This invite was sent from your team."
+msgstr "Esta invitación se envió desde tu equipo."
+
+msgid "Advanced"
+msgstr "Avanzado"
+
+msgid "Add people..."
+msgstr "Añadir personas..."
+
+msgid "Copy Link"
+msgstr "Copiar enlace"
+
+msgid "Back"
+msgstr "Atrás"
+
+msgid "Allow download"
+msgstr "Permitir descarga"
+
+msgid "Owner (you)"
+msgstr "Propietario (tú)"
+
+msgid "You"
+msgstr "Tú"
+
+msgid "Owner"
+msgstr "Propietario"
+
+msgid "Sync"
+msgstr "Sincronizar"
+
+msgid "Root Folder Name"
+msgstr "Nombre de la carpeta raíz"
+
+msgid "Where to store Drive files, defaults to the root folder."
+msgstr "Dónde almacenar los archivos de Drive; por defecto la carpeta raíz."
+
+msgid "Team Prefix"
+msgstr "Prefijo de equipo"
+
+msgid "Team ID"
+msgstr "ID de equipo"
+
+msgid "Team Name"
+msgstr "Nombre del equipo"
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid "The folder name for each team, defaults to the team name."
+msgstr "Nombre de carpeta para cada equipo; por defecto el nombre del equipo."
+
+msgid "Backend Type"
+msgstr "Tipo de backend"
+
+msgid "Disk"
+msgstr "Disco"
+
+msgid "S3"
+msgstr "S3"
+
+msgid "Whether to store on disk or on an S3 bucket."
+msgstr "Si almacenar en disco o en un bucket S3."
+
+msgid "S3 Settings"
+msgstr "Configuración S3"
+
+msgid "AWS Key"
+msgstr "Clave AWS"
+
+msgid "Enter AWS Key"
+msgstr "Introduce la clave AWS"
+
+msgid "AWS Secret"
+msgstr "Secreto AWS"
+
+msgid "Enter AWS Secret"
+msgstr "Introduce el secreto AWS"
+
+msgid "This isn't shown after you submit it."
+msgstr "No se muestra después de enviar."
+
+msgid "Endpoint URL"
+msgstr "URL del endpoint"
+
+msgid "Enter Endpoint URL"
+msgstr "Introduce la URL del endpoint"
+
+msgid "Optional, only if using a custom endpoint."
+msgstr "Opcional, solo si usas un endpoint personalizado."
+
+msgid "Signature Version"
+msgstr "Versión de firma"
+
+msgid "Optional. Some providers only support 's3'."
+msgstr "Opcional. Algunos proveedores solo admiten 's3'."
+
+msgid "Optional. Some providers only support s3."
+msgstr "Opcional. Algunos proveedores solo admiten s3."
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "Name:"
+msgstr "Nombre:"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Try out Drive"
+msgstr "Prueba Drive"
+
+msgid "Transfer"
+msgstr "Transferir"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Loading..."
+msgstr "Cargando..."
+
+msgid "Prev"
+msgstr "Ant."
+
+msgid "Next"
+msgstr "Sig."
+
+msgid "Select a team"
+msgstr "Seleccionar un equipo"
+
+msgid "Everywhere"
+msgstr "En todas partes"
+
+msgid "Views"
+msgstr "Vistas"
+
+msgid "Documents"
+msgstr "Documentos"
+
+msgid "Slides"
+msgstr "Presentaciones"
+
+msgid "Nothing here"
+msgstr "Nada aquí"
+
+msgid "Login to Drive"
+msgstr "Iniciar sesión en Drive"
+
+msgid "Join"
+msgstr "Unirse"
+
+msgid "Create an account"
+msgstr "Crear una cuenta"
+
+msgid "Powered by Frappe Drive."
+msgstr "Desarrollado por Frappe Drive."
+
+msgid "Welcome to Drive."
+msgstr "Bienvenido a Drive."
+
+msgid "Welcome back!"
+msgstr "¡Bienvenido de nuevo!"
+
+msgid "I accept the"
+msgstr "Acepto los"
+
+msgid "Terms and Policies"
+msgstr "Términos y políticas"
+
+msgid "Sign up"
+msgstr "Registrarse"
+
+msgid "Resend verification code"
+msgstr "Reenviar código de verificación"
+
+msgid "in"
+msgstr "en"
+
+msgid "seconds"
+msgstr "segundos"
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "or"
+msgstr "o"
+
+msgid "Continue"
+msgstr "Continuar"
+
+msgid "with"
+msgstr "con"
+
+msgid "Collaborate"
+msgstr "Colaborar"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Lock"
+msgstr "Bloquear"
+
+msgid "Wide"
+msgstr "Ancho"
+
+msgid "Minimal"
+msgstr "Mínimo"
+
+msgid "Export"
+msgstr "Exportar"
+
+msgid "Export Media"
+msgstr "Exportar medios"
+
+msgid "Export Blog"
+msgstr "Exportar blog"
+
+msgid "Clear Cache"
+msgstr "Borrar caché"
+
+msgid "Versions"
+msgstr "Versiones"
+
+msgid "Show Comments"
+msgstr "Mostrar comentarios"
+
+msgid "Hide Comments"
+msgstr "Ocultar comentarios"
+
+msgid "Show Resolved"
+msgstr "Mostrar resueltos"
+
+msgid "Hide Resolved"
+msgstr "Ocultar resueltos"
+
+msgid "No recent files"
+msgstr "No hay archivos recientes"
+
+msgid "Try opening something to see it here."
+msgstr "Abre algo para verlo aquí."
+
+msgid "Today"
+msgstr "Hoy"
+
+msgid "Earlier this week"
+msgstr "Esta semana"
+
+msgid "Earlier this month"
+msgstr "Este mes"
+
+msgid "Earlier this year"
+msgstr "Este año"
+
+msgid "Older than a year"
+msgstr "Más de un año"
+
+msgid "You have"
+msgstr "Tienes"
+
+msgid "Your team has"
+msgstr "Tu equipo tiene"
+
+msgid "used"
+msgstr "usado"
+
+msgid "out"
+msgstr "de"
+
+msgid "of"
+msgstr "de"
+
+msgid "none"
+msgstr "nada"
+
+msgid "your"
+msgstr "tu"
+
+msgid "This is an automatic snapshot of this document from"
+msgstr "Esta es una instantánea automática de este documento del"
+
+msgid "Editing is disabled until you exit this preview."
+msgstr "La edición está deshabilitada hasta que salgas de esta vista previa."
+
+msgid "Exit"
+msgstr "Salir"
+
+msgid "Restore"
+msgstr "Restaurar"
+
+msgid "Start writing here..."
+msgstr "Empieza a escribir aquí..."
+
+msgid "Configuration"
+msgstr "Configuración"
+
+msgid "Please give a positive whole number for versioning frequency."
+msgstr "Indica un número entero positivo para la frecuencia de versionado."
+
+msgid "this document"
+msgstr "este documento"
+
+msgid "new documents"
+msgstr "documentos nuevos"
+
+msgid "How often to take automated versions (minutes)."
+msgstr "Con qué frecuencia crear versiones automáticas (minutos)."
+
+msgid "Styles"
+msgstr "Estilos"
+
+msgid "Choose the default font family for"
+msgstr "Elige la familia de fuente por defecto para"
+
+msgid "Set the font size of the editor (px)."
+msgstr "Tamaño de fuente del editor (px)."
+
+msgid "Set the line height of the editor."
+msgstr "Altura de línea del editor."
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Reply"
+msgstr "Responder"
+
+msgid "Keyboard Shortcuts"
+msgstr "Atajos de teclado"
+
+msgid "General"
+msgstr "General"
+
+msgid "Find Files"
+msgstr "Buscar archivos"
+
+msgid "Open Settings"
+msgstr "Abrir configuración"
+
+msgid "Navigation"
+msgstr "Navegación"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+msgid "Unselect all"
+msgstr "Deseleccionar todo"
+
+msgid "Share selected file(s)"
+msgstr "Compartir archivo(s) seleccionado(s)"
+
+msgid "Move selected file(s)"
+msgstr "Mover archivo(s) seleccionado(s)"
+
+msgid "Delete selected file(s)"
+msgstr "Eliminar archivo(s) seleccionado(s)"
+
+msgid "Upload a file"
+msgstr "Subir un archivo"
+
+msgid "Create a folder"
+msgstr "Crear una carpeta"
+
+msgid "Nothing found - try something else?"
+msgstr "Nada encontrado. ¿Prueba con otra cosa?"
+
+msgid "No Storage Used"
+msgstr "Sin almacenamiento usado"
+
+msgid "Large Files:"
+msgstr "Archivos grandes:"
+
+msgid "No tags found"
+msgstr "No se encontraron etiquetas"
+
+msgid "Results for"
+msgstr "Resultados para"
+
+msgid "Log out"
+msgstr "Cerrar sesión"
+
+msgid "Welcome"
+msgstr "Bienvenido"
+
+msgid "No Notifications"
+msgstr "Sin notificaciones"
+
+msgid "Information"
+msgstr "Información"
+
+msgid "Access"
+msgstr "Acceso"
+
+msgid "Cannot open file"
+msgstr "No se puede abrir el archivo"
+
+msgid "Go Home"
+msgstr "Ir al inicio"
+
+msgid "Open in Desk"
+msgstr "Abrir en Desk"
+
+msgid "Upload to get started!"
+msgstr "¡Sube archivos para empezar!"
+
+msgid "Please ask your site's administrator to set the access key in the"
+msgstr "Pide al administrador del sitio que configure la clave de acceso en"
+
+msgid "Are you sure you want to preview?"
+msgstr "¿Seguro que quieres ver la vista previa?"
+
+msgid "This preview is generated by an external service (Microsoft), not by Drive. For extra privacy, we'd suggest downloading."
+msgstr "Esta vista previa la genera un servicio externo (Microsoft), no Drive. Para más privacidad, te recomendamos descargar el archivo."
+
+msgid "View anyway"
+msgstr "Ver de todos modos"
+
+msgid "Accessible to all"
+msgstr "Accesible para todos"
+
+msgid "Successfully synced"
+msgstr "Sincronizado correctamente"
+
+msgid "Added"
+msgstr "Añadido"
+
+msgid "items"
+msgstr "elementos"
+
+msgid "item"
+msgstr "elemento"
+
+msgid "No new files were added."
+msgstr "No se añadieron archivos nuevos."
+
+msgid "There was an error."
+msgstr "Se produjo un error."
+
+msgid "Is there an issue with your configuration?"
+msgstr "¿Hay algún problema con tu configuración?"
+
+msgid "Starting syncing."
+msgstr "Iniciando sincronización."
+
+msgid "Accessible to invited members"
+msgstr "Accesible para miembros invitados"
+
+msgid "Accessible to a team"
+msgstr "Accesible para un equipo"
+
+msgid "Please set up your Drive Settings."
+msgstr "Configura los ajustes de Drive."
+
+msgid "Previews are not supported for this file type. Would you like to download it instead?"
+msgstr "No hay vista previa para este tipo de archivo. ¿Quieres descargarlo?"
+
+msgid "This is too large to preview - would you like to download instead?"
+msgstr "Es demasiado grande para la vista previa. ¿Quieres descargarlo?"
+
+msgid "Any additional classes to apply."
+msgstr "Clases adicionales a aplicar."
+
+msgid "You requested an invite from this team."
+msgstr "Solicitaste una invitación a este equipo."
+
+msgid "Added to the team"
+msgstr "Añadido al equipo"
+
+msgid "You have left the team."
+msgstr "Has abandonado el equipo."
+
+msgid "Invite sent!"
+msgstr "¡Invitación enviada!"
+
+msgid "Sync files from S3"
+msgstr "Sincronizar archivos desde S3"
+
+msgid "Are you sure?"
+msgstr "¿Estás seguro?"
+
+msgid "Your comment did not go through."
+msgstr "Tu comentario no se ha enviado."
+
+msgid "Changing version"
+msgstr "Cambiando versión"
+
+msgid "Saving document"
+msgstr "Guardando documento"
+
+msgid "S3 settings updated successfully"
+msgstr "Configuración S3 actualizada correctamente"
+
+msgid "Folder name is required"
+msgstr "El nombre de la carpeta es obligatorio"
+
+msgid "Link name is required"
+msgstr "El nombre del enlace es obligatorio"
+
+msgid "Edit Tag"
+msgstr "Editar etiqueta"
+
+msgid "No presentations yet."
+msgstr "Aún no hay presentaciones."
+
+msgid "No favourites yet"
+msgstr "Aún no hay favoritos"
+
+msgid "No files added yet"
+msgstr "Aún no se han añadido archivos"
+
+msgid "This team is empty"
+msgstr "Este equipo está vacío"
+
+msgid "No shared files"
+msgstr "No hay archivos compartidos"
+
+msgid "Trash is empty"
+msgstr "La papelera está vacía"
+
+msgid "There is already a folder with this name here."
+msgstr "Ya existe una carpeta con este nombre aquí."
+
+msgid "Create Version"
+msgstr "Crear versión"
+
+msgid "Unlocked document temporarily."
+msgstr "Documento desbloqueado temporalmente."
+
+msgid "Locked document."
+msgstr "Documento bloqueado."
+
+msgid "We can't save your file. Please contact support."
+msgstr "No podemos guardar tu archivo. Contacta con soporte."
+
+msgid "Preparing..."
+msgstr "Preparando..."
+
+msgid "Could not export your document."
+msgstr "No se pudo exportar tu documento."
+
+msgid "You're offline"
+msgstr "Estás sin conexión"
+
+msgid "Don't worry, your changes will be saved locally."
+msgstr "Tranquilo, tus cambios se guardarán localmente."
+
+msgid "Back online!"
+msgstr "¡Conectado de nuevo!"
+
+msgid "This document uses an old schema. Collaborative editing is disabled."
+msgstr "Este documento usa un esquema antiguo. La edición colaborativa está desactivada."
+
+msgid "New member? Create a new account."
+msgstr "¿Nuevo? Crea una cuenta."
+
+msgid "Already have an account? Log in."
+msgstr "¿Ya tienes cuenta? Inicia sesión."
+
+msgid "Account already exists - please login."
+msgstr "La cuenta ya existe. Inicia sesión."
+
+msgid "Verification code sent to your email"
+msgstr "Código de verificación enviado a tu correo"
+
+msgid "We'll give you an update when it's done."
+msgstr "Te avisaremos cuando termine."
+
+msgid "New folder"
+msgstr "Nueva carpeta"
+
+msgid "Unread"
+msgstr "No leídos"
+
+msgid "Mark all as Read"
+msgstr "Marcar todo como leído"
+
+msgid "Subject"
+msgstr "Asunto"
+
+msgid "Load sample files"
+msgstr "Cargar archivos de ejemplo"
+
+msgid "Done"
+msgstr "Hecho"
+
+msgid "Drop to upload"
+msgstr "Suelta aquí para subir"
+
+msgid "Sample files"
+msgstr "Archivos de ejemplo"
+
+msgid "1 item selected"
+msgstr "1 elemento seleccionado"
+
+msgid "%s items selected"
+msgstr "%s elementos seleccionados"
+
+msgid "These items "
+msgstr "Estos elementos "
+
+msgid "Restore an item"
+msgstr "Restaurar un elemento"
+
+msgid "Restore %s items"
+msgstr "Restaurar %s elementos"
+
+msgid "will be restored to its original location."
+msgstr "será restaurado a su ubicación original."
+
+msgid "will be restored to their original locations."
+msgstr "serán restaurados a sus ubicaciones originales."
+
+msgid "Restored an item."
+msgstr "Elemento restaurado."
+
+msgid "Restored %s items."
+msgstr "%s elementos restaurados."
+
+msgid "Move an item to Trash"
+msgstr "Mover un elemento a la papelera"
+
+msgid "Move %s items to Trash"
+msgstr "Mover %s elementos a la papelera"
+
+msgid "will be moved to Trash.<br/><br/> Items in trash are deleted forever after 30 days."
+msgstr "se moverá a la papelera.<br/><br/> Los elementos en la papelera se eliminan permanentemente después de 30 días."
+
+msgid "Moved an item to Trash."
+msgstr "Elemento movido a la papelera."
+
+msgid "Moved %s items to Trash."
+msgstr "%s elementos movidos a la papelera."
+
+msgid "Delete an item"
+msgstr "Eliminar un elemento"
+
+msgid "Delete %s items"
+msgstr "Eliminar %s elementos"
+
+msgid "will be deleted - you can no longer access it.<br/><br/> <span class=font-semibold>This is an irreversible action.</span>"
+msgstr "será eliminado y no podrás acceder a él.<br/><br/> <span class=font-semibold>Esta acción es irreversible.</span>"
+
+msgid "Deleted an item."
+msgstr "Elemento eliminado."
+
+msgid "Deleted %s items."
+msgstr "%s elementos eliminados."

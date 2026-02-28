@@ -2,11 +2,11 @@
   <Dialog
     v-model="open"
     :options="{
-      title: 'New Presentation',
+      title: __('New Presentation'),
       size: 'xs',
       actions: [
         {
-          label: 'Create',
+          label: __('Create'),
           variant: 'solid',
           disabled: presentationName.length === 0,
           loading: createPresentation.loading,
@@ -20,7 +20,7 @@
       <FormControl
         v-model="presentationName"
         v-focus
-        label="Name:"
+        :label="__('Name:')"
         @keyup.enter="submit"
         @keydown="createPresentation.error = null"
         autocomplete="off"

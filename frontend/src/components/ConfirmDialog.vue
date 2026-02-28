@@ -8,11 +8,7 @@
       <div class="flex items-center justify-start">
         <div class="text-base text-ink-gray-6">
           <template v-if="props.entities.length">
-            {{
-              props.entities.length > 1
-                ? "These items "
-                : `"${props.entities[0].title}" `
-            }}
+            {{ dialogData.prefix }}
           </template>
           <span v-html="dialogData.message" />
         </div>
@@ -36,7 +32,7 @@ import {
   clearRecent,
   clearTrash,
 } from "@/resources/files.js"
-import { sortEntities } from "@/utils/files.js"
+import { sortEntities, getTimeAgoOptions } from "@/utils/files.js"
 
 import LucideRotateCcw from "~icons/lucide/rotate-ccw"
 import {} from "@/resources/files"
@@ -52,16 +48,17 @@ const dialogType = defineModel()
 const open = ref(true)
 
 const dialogData = computed(() => {
-  const itemString =
-    props.entities.length === 1 ? "an item" : `${props.entities.length} items`
+  const n = props.entities.length
+  const one = n === 1
   const MAP = {
     restore: {
-      title: `Restore ${itemString}`,
-      message: `will be restored to ${
-        props.entities.length === 1
-          ? "its original location"
-          : "their original locations"
-      }.`,
+      prefix: one ? `"${props.entities[0].title}" ` : window.__("These items "),
+      title: one
+        ? window.__("Restore an item")
+        : window.__("Restore %s items").replace("%s", n),
+      message: one
+        ? window.__("will be restored to its original location.")
+        : window.__("will be restored to their original locations."),
       url: "drive.api.files.remove_or_restore",
       onSuccess: () => {
         getTrash.setData((d) =>
@@ -70,18 +67,24 @@ const dialogData = computed(() => {
       },
       button: {
         variant: "solid",
-        label: "Restore",
+        label: window.__("Restore"),
         iconLeft: LucideRotateCcw,
       },
-      toastMessage: `Restored ${itemString}.`,
+      toastMessage: one
+        ? window.__("Restored an item.")
+        : window.__("Restored %s items.").replace("%s", n),
     },
     remove: {
-      title: `Move ${itemString} to Trash`,
-      message:
-        "will be moved to Trash.<br/><br/> Items in trash are deleted forever after 30 days.",
+      prefix: one ? `"${props.entities[0].title}" ` : window.__("These items "),
+      title: one
+        ? window.__("Move an item to Trash")
+        : window.__("Move %s items to Trash").replace("%s", n),
+      message: window.__(
+        "will be moved to Trash.<br/><br/> Items in trash are deleted forever after 30 days."
+      ),
       url: "drive.api.files.remove_or_restore",
       button: {
-        label: "Move to Trash",
+        label: window.__("Move to Trash"),
         theme: "red",
         variant: "subtle",
       },
@@ -91,44 +94,54 @@ const dialogData = computed(() => {
             ...getTrash.data,
             ...props.entities.map((k) => {
               k.modified = Date()
-              k.relativeModified = useTimeAgo(k.modified)
+              k.relativeModified = useTimeAgo(k.modified, getTimeAgoOptions())
               return k
             }),
           ])
         )
       },
-      toastMessage: `Moved ${itemString} to Trash.`,
+      toastMessage: one
+        ? window.__("Moved an item to Trash.")
+        : window.__("Moved %s items to Trash.").replace("%s", n),
     },
     d: {
-      title: `Delete ${itemString}`,
+      prefix: one ? `"${props.entities[0].title}" ` : window.__("These items "),
+      title: one
+        ? window.__("Delete an item")
+        : window.__("Delete %s items").replace("%s", n),
       url: "drive.api.files.delete_entities",
-      message:
-        " will be deleted - you can no longer access it.<br/><br/> <span class=font-semibold>This is an irreversible action.<span>",
+      message: window.__(
+        "will be deleted - you can no longer access it.<br/><br/> <span class=font-semibold>This is an irreversible action.</span>"
+      ),
       button: {
-        label: "Delete — forever.",
+        label: window.__("Delete — forever."),
         theme: "red",
         iconLeft: LucideTrash,
         variant: "solid",
       },
-      toastMessage: `Deleted ${itemString}.`,
+      toastMessage: one
+        ? window.__("Deleted an item.")
+        : window.__("Deleted %s items.").replace("%s", n),
     },
     "cta-recents": {
-      title: "Are you sure?",
-      message: "All your recently viewed files will be cleared.",
-      button: { label: "Clear" },
+      prefix: "",
+      title: window.__("Are you sure?"),
+      message: window.__("All your recently viewed files will be cleared."),
+      button: { label: window.__("Clear") },
       resource: clearRecent,
     },
     "cta-favourites": {
-      title: "Are you sure?",
-      message: "All your favourite items will be cleared.",
-      button: { label: "Clear" },
+      prefix: "",
+      title: window.__("Are you sure?"),
+      message: window.__("All your favourite items will be cleared."),
+      button: { label: window.__("Clear") },
       resource: toggleFav,
     },
     "cta-trash": {
-      title: "Clear your Trash",
-      message:
-        "All items in your Trash will be deleted forever. <br/><br/> <span class=font-semibold>This is an irreversible process.</span>",
-      button: { label: "Delete", variant: "solid", iconLeft: LucideTrash },
+      prefix: "",
+      title: window.__("Clear your Trash"),
+      message: window.__("All items in your Trash will be deleted forever. <br/><br/> <span class=font-semibold>This is an irreversible process.</span>"),
+      button: { label: window.__("Delete"), variant: "solid", iconLeft: LucideTrash },
       resource: clearTrash,
     },
   }

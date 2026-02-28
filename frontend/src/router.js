@@ -3,6 +3,7 @@ import store from "./store"
 import { createResource } from "frappe-ui"
 import Dummy from "@/pages/Dummy.vue"
 import { getTeams, translate } from "@/resources/files"
+import { integrationConfig } from "@/resources/permissions"
 
 function clearStore() {
   store.commit("setActiveEntity", null)
@@ -24,6 +25,16 @@ async function setRootBreadCrumb(to) {
       store.commit("setBreadcrumbs", [
         { label: __(to.name), name: to.name, route: to.path },
       ])
+  }
+}
+
+async function checkAttachmentsEnabled() {
+  if (!integrationConfig.data) {
+    await integrationConfig.fetch()
+  }
+  const config = integrationConfig.data
+  if (!config?.enabled || !config?.show_attachments_in_drive) {
+    return { name: "Home" }
   }
 }
 
@@ -106,6 +117,34 @@ const routes = [
     name: "Trash",
     component: () => import("@/pages/Trash.vue"),
     beforeEnter: [setRootBreadCrumb],
+  },
+  // Attachments Integration Routes
+  {
+    path: "/attachments",
+    name: "Attachments",
+    component: () => import("@/pages/Attachments.vue"),
+    beforeEnter: [checkAttachmentsEnabled, setRootBreadCrumb],
+  },
+  {
+    path: "/attachments/:doctype",
+    name: "AttachmentsDocType",
+    component: () => import("@/pages/AttachmentsDocType.vue"),
+    beforeEnter: [checkAttachmentsEnabled],
+    props: true,
+  },
+  {
+    path: "/attachments/:doctype/:docname",
+    name: "AttachmentsDocument",
+    component: () => import("@/pages/AttachmentsDocument.vue"),
+    beforeEnter: [checkAttachmentsEnabled],
+    props: true,
+  },
+  {
+    path: "/embed/:doctype/:docname",
+    name: "Embed",
+    component: () => import("@/pages/EmbedView.vue"),
+    meta: { isEmbed: true, allowGuest: false },
+    props: true,
   },
   {
     path: "/transfer",

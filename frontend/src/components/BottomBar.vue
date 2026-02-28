@@ -43,9 +43,10 @@ export default {
     },
     sidebarItems() {
       const first = this.$store.state.breadcrumbs[0] || {}
+      const __ = this.__ || window.__
       return [
         {
-          label: "Home",
+          label: __("Home"),
           route: "/",
           icon: LucideHome,
           highlight: () => {
@@ -53,7 +54,7 @@ export default {
           },
         },
         {
-          label: "Team",
+          label: __("Team"),
           route: "/teams",
           icon: LucideBuilding2,
           highlight: () => {
@@ -61,7 +62,7 @@ export default {
           },
         },
         {
-          label: "Recents",
+          label: __("Recents"),
           route: "/recents",
           icon: LucideClock,
           highlight: () => {
@@ -70,7 +71,7 @@ export default {
         },
 
         {
-          label: "Shared",
+          label: __("Shared"),
           route: "/shared",
           icon: LucideUsers,
           highlight: () => {
@@ -78,7 +79,7 @@ export default {
           },
         },
         {
-          label: "Favourites",
+          label: __("Favourites"),
           route: "/favourites",
           icon: LucideStar,
           highlight: () => {

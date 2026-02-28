@@ -25,6 +25,12 @@ export const settings = createResource({
   cache: "settings",
 })
 
+export const integrationConfig = createResource({
+  url: "/api/method/drive.boot.get_integration_config",
+  method: "GET",
+  cache: "integration-config",
+})
+
 export const setSettings = createResource({
   url: "/api/method/drive.api.product.set_settings",
   method: "POST",

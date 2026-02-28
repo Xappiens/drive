@@ -3,6 +3,29 @@ import store from "@/store"
 import { formatSize } from "@/utils/format"
 import { nextTick } from "vue"
 import { useTimeAgo } from "@vueuse/core"
+
+export const getTimeAgoOptions = () => {
+  const lang =
+    typeof document !== "undefined" && document.documentElement?.lang
+      ? document.documentElement.lang.toLowerCase().slice(0, 2)
+      : "en"
+  if (lang !== "es") return {}
+  return {
+    messages: {
+      justNow: "hace un momento",
+      invalid: "fecha no válida",
+      past: (n) => "hace " + n,
+      future: (n) => "en " + n,
+      second: (n) => (n === 1 ? "hace 1 segundo" : "hace " + n + " segundos"),
+      minute: (n) => (n === 1 ? "hace 1 minuto" : "hace " + n + " minutos"),
+      hour: (n) => (n === 1 ? "hace 1 hora" : "hace " + n + " horas"),
+      day: (n) => (n === 1 ? "hace 1 día" : "hace " + n + " días"),
+      week: (n) => (n === 1 ? "hace 1 semana" : "hace " + n + " semanas"),
+      month: (n) => (n === 1 ? "hace 1 mes" : "hace " + n + " meses"),
+      year: (n) => (n === 1 ? "hace 1 año" : "hace " + n + " años"),
+    },
+  }
+}
 import {
   getRecents,
   mutate,
@@ -28,7 +51,7 @@ export const openEntity = (entity, new_tab = false) => {
 
     mutate([entity], (e) => {
       e.accessed = Date()
-      entity.relativeAccessed = useTimeAgo(entity.accessed)
+      entity.relativeAccessed = useTimeAgo(entity.accessed, getTimeAgoOptions())
     })
   }
 
@@ -38,7 +61,10 @@ export const openEntity = (entity, new_tab = false) => {
 
   if (!entity.breadcrumbs?.length)
     store.state.breadcrumbs.push({
-      label: entity.title,
+      label:
+        entity.title === "Sample files"
+          ? (window.__("Sample files") || entity.title)
+          : entity.title,
       name: entity.name,
       route: null,
     })
@@ -50,6 +76,19 @@ export const openEntity = (entity, new_tab = false) => {
       name: entity.is_private ? "Home" : "Team",
       params: { team },
     })
+  } else if (entity.is_attachment_doctype) {
+    router.push({
+      name: "AttachmentsDocType",
+      params: { doctype: entity.name },
+    })
+  } else if (entity.is_attachment_document) {
+    router.push({
+      name: "AttachmentsDocument",
+      params: { doctype: entity.attachment_doctype, docname: entity.name },
+    })
+  } else if (entity.is_attachment) {
+    const url = entity.path || entity.file_url
+    if (url) window.open(url, "_blank")
   } else if (entity.is_group) {
     router.push({
       name: "Folder",
@@ -221,7 +260,8 @@ export const setBreadCrumbs = (entity) => {
   breadcrumbs.forEach((folder, idx) => {
     const final = idx === breadcrumbs.length - 1
     res.push({
-      label: folder.title,
+      label:
+        folder.title === "Sample files" ? (window.__("Sample files") || folder.title) : folder.title,
       name: folder.name,
       onClick: final
         ? () => entity.write && emitter.emit("rename")

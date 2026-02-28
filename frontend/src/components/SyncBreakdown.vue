@@ -78,7 +78,7 @@
           If you already have files, make sure you have a backup.
         </Alert>
         <Button
-          label="Confirm"
+          :label="__('Confirm')"
           class="w-full mt-8"
           variant="solid"
           :disabled="!preview.data?.length"
@@ -177,25 +177,25 @@ const syncFromDisk = createResource({
   beforeSubmit: () => {
     toast({
       icon: LucideFolderSync,
-      title: "Starting syncing.",
-      text: "We'll give you an update when it's done.",
+      title: __("Starting syncing."),
+      text: __("We'll give you an update when it's done."),
     })
   },
   onSuccess: (d) => {
     toast({
       icon: LucideCloudCheck,
-      title: "Successfully synced",
+      title: __("Successfully synced"),
       text: d.length
-        ? `Added ${d.length} item${d.length > 1 ? "s" : ""}`
-        : "No new files were added.",
+        ? __("Added") + " " + d.length + " " + (d.length > 1 ? __("items") : __("item"))
+        : __("No new files were added."),
     })
     emitter.emit("refresh")
   },
   onError: () => {
     toast({
       icon: LucideCloudAlert,
-      title: "There was an error.",
-      text: "Is there an issue with your configuration?",
+      title: __("There was an error."),
+      text: __("Is there an issue with your configuration?"),
     })
   },
 })
