@@ -11,6 +11,7 @@ class DriveAttachmentsWidget {
         this.container = null;
         this.iframe = null;
         this.isCollapsed = false;
+        this.messageHandler = (e) => this.handleMessage(e);
         this.render();
     }
 
@@ -77,7 +78,7 @@ class DriveAttachmentsWidget {
 
         this.container.find('.drive-widget-body').append(this.iframe);
 
-        window.addEventListener('message', (e) => this.handleMessage(e));
+        window.addEventListener('message', this.messageHandler);
     }
 
     handleMessage(event) {
@@ -111,6 +112,7 @@ class DriveAttachmentsWidget {
     }
 
     destroy() {
+        window.removeEventListener('message', this.messageHandler);
         if (this.container) {
             this.container.remove();
         }

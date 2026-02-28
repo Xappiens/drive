@@ -22,16 +22,21 @@ def get_doctypes_with_attachments(search=None, limit=50, offset=0):
     Returns:
         List of dicts with doctype name and file count
     """
+    limit = min(int(limit or 50), 500)
+    offset = max(int(offset or 0), 0)
+    
     cache_key = f"drive_doctypes_attachments_{search or 'all'}_{limit}_{offset}"
     cached = frappe.cache().get_value(cache_key)
     
     if cached and not search:
         return cached
     
+    params = [limit, offset]
     conditions = "WHERE attached_to_doctype IS NOT NULL AND attached_to_doctype != ''"
     
     if search:
-        conditions += f" AND attached_to_doctype LIKE '%{frappe.db.escape(search, percent=False)}%'"
+        conditions += " AND attached_to_doctype LIKE %s"
+        params = [f"%{search}%", limit, offset]
     
     result = frappe.db.sql(f"""
         SELECT 
@@ -43,7 +48,7 @@ def get_doctypes_with_attachments(search=None, limit=50, offset=0):
         GROUP BY attached_to_doctype
         ORDER BY file_count DESC
         LIMIT %s OFFSET %s
-    """, (limit, offset), as_dict=True)
+    """, params, as_dict=True)
     
     filtered_result = []
     for row in result:
@@ -76,8 +81,14 @@ def get_documents_with_attachments(doctype, search=None, limit=50, offset=0):
     Returns:
         List of dicts with document name and attachment count
     """
+    if not doctype or not frappe.db.exists("DocType", doctype):
+        frappe.throw(_("Invalid DocType"), frappe.ValidationError)
+    
     if not frappe.has_permission(doctype, "read"):
         frappe.throw(_("No permission to access {0}").format(doctype), frappe.PermissionError)
+    
+    limit = min(int(limit or 50), 500)
+    offset = max(int(offset or 0), 0)
     
     conditions = "WHERE attached_to_doctype = %s"
     params = [doctype]

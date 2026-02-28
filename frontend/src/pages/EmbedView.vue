@@ -45,7 +45,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted, onUnmounted } from "vue"
+import { ref, computed, watch, onMounted, onBeforeUnmount } from "vue"
 import { useRoute } from "vue-router"
 import { LoadingIndicator } from "frappe-ui"
 import { getDocumentFiles } from "@/resources/files"
@@ -118,14 +118,18 @@ async function fetchFiles() {
 
 watch([doctype, docname], fetchFiles, { immediate: true })
 
+function handleParentMessage(event) {
+  if (event.data?.type === "drive-refresh") {
+    fetchFiles()
+  }
+}
+
 onMounted(() => {
-  fetchFiles()
-  
-  window.addEventListener("message", (event) => {
-    if (event.data?.type === "drive-refresh") {
-      fetchFiles()
-    }
-  })
+  window.addEventListener("message", handleParentMessage)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("message", handleParentMessage)
 })
 </script>
 

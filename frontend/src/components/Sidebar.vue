@@ -295,6 +295,7 @@ const sidebarItems = computed(() => {
           icon: LucidePaperclip,
           isActive: first.name == "Attachments",
           accessKey: "a",
+          cond: true,
         },
       ]),
     },
