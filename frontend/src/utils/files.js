@@ -76,6 +76,19 @@ export const openEntity = (entity, new_tab = false) => {
       name: entity.is_private ? "Home" : "Team",
       params: { team },
     })
+  } else if (entity.is_attachment_doctype) {
+    router.push({
+      name: "AttachmentsDocType",
+      params: { doctype: entity.name },
+    })
+  } else if (entity.is_attachment_document) {
+    router.push({
+      name: "AttachmentsDocument",
+      params: { doctype: entity.attachment_doctype, docname: entity.name },
+    })
+  } else if (entity.is_attachment) {
+    const url = entity.path || entity.file_url
+    if (url) window.open(url, "_blank")
   } else if (entity.is_group) {
     router.push({
       name: "Folder",
