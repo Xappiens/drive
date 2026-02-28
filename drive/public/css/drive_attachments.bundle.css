@@ -1,0 +1,78 @@
+/* Drive Attachments Widget Styles */
+
+.drive-attachments-widget {
+    margin-top: 1rem;
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: var(--border-radius, 0.375rem);
+    background: var(--fg-color, #ffffff);
+    overflow: hidden;
+}
+
+.drive-widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-color, #f8fafc);
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    cursor: pointer;
+}
+
+.drive-widget-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: 500;
+    color: var(--text-color, #1e293b);
+}
+
+.drive-widget-title svg {
+    width: 14px;
+    height: 14px;
+}
+
+.drive-widget-actions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.drive-widget-actions .btn {
+    padding: 0.25rem 0.375rem;
+    line-height: 1;
+}
+
+.drive-widget-body {
+    min-height: 150px;
+    max-height: 350px;
+    overflow: hidden;
+}
+
+.drive-widget-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}
+
+.drive-embed-iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    display: none;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .drive-attachments-widget {
+    background: var(--fg-color, #1e293b);
+    border-color: var(--border-color, #334155);
+}
+
+[data-theme="dark"] .drive-widget-header {
+    background: var(--bg-color, #0f172a);
+    border-color: var(--border-color, #334155);
+}
+
+[data-theme="dark"] .drive-widget-title {
+    color: var(--text-color, #e2e8f0);
+}

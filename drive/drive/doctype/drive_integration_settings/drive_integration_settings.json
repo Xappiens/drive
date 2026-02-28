@@ -1,0 +1,94 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "creation": "2026-02-28 10:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "enabled_section",
+    "enabled",
+    "column_break_1",
+    "embed_in_sidebar",
+    "drive_section",
+    "show_attachments_in_drive",
+    "excluded_doctypes_section",
+    "excluded_doctypes"
+  ],
+  "fields": [
+    {
+      "fieldname": "enabled_section",
+      "fieldtype": "Section Break",
+      "label": "Integration Settings"
+    },
+    {
+      "default": "0",
+      "description": "When enabled, Drive will show attachments from Frappe documents and optionally embed a widget in form sidebars.",
+      "fieldname": "enabled",
+      "fieldtype": "Check",
+      "label": "Enable Drive Attachments Integration"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "1",
+      "depends_on": "enabled",
+      "description": "Show a Drive widget in the attachments section of Frappe form sidebars.",
+      "fieldname": "embed_in_sidebar",
+      "fieldtype": "Check",
+      "label": "Embed Drive Widget in Form Sidebar"
+    },
+    {
+      "fieldname": "drive_section",
+      "fieldtype": "Section Break",
+      "label": "Drive Navigation"
+    },
+    {
+      "default": "1",
+      "depends_on": "enabled",
+      "description": "Show an 'Attachments' section in the Drive sidebar to browse attachments by DocType.",
+      "fieldname": "show_attachments_in_drive",
+      "fieldtype": "Check",
+      "label": "Show Attachments Section in Drive Sidebar"
+    },
+    {
+      "collapsible": 1,
+      "depends_on": "enabled",
+      "fieldname": "excluded_doctypes_section",
+      "fieldtype": "Section Break",
+      "label": "Excluded DocTypes"
+    },
+    {
+      "description": "DocTypes listed here will NOT show the Drive widget in their form sidebar.",
+      "fieldname": "excluded_doctypes",
+      "fieldtype": "Table",
+      "label": "Excluded DocTypes",
+      "options": "Drive Integration Excluded DocType"
+    }
+  ],
+  "index_web_pages_for_search": 0,
+  "issingle": 1,
+  "links": [],
+  "modified": "2026-02-28 10:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Drive",
+  "name": "Drive Integration Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

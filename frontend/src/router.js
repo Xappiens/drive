@@ -107,6 +107,32 @@ const routes = [
     component: () => import("@/pages/Trash.vue"),
     beforeEnter: [setRootBreadCrumb],
   },
+  // Attachments Integration Routes
+  {
+    path: "/attachments",
+    name: "Attachments",
+    component: () => import("@/pages/Attachments.vue"),
+    beforeEnter: [setRootBreadCrumb],
+  },
+  {
+    path: "/attachments/:doctype",
+    name: "AttachmentsDocType",
+    component: () => import("@/pages/AttachmentsDocType.vue"),
+    props: true,
+  },
+  {
+    path: "/attachments/:doctype/:docname",
+    name: "AttachmentsDocument",
+    component: () => import("@/pages/AttachmentsDocument.vue"),
+    props: true,
+  },
+  {
+    path: "/embed/:doctype/:docname",
+    name: "Embed",
+    component: () => import("@/pages/EmbedView.vue"),
+    meta: { isEmbed: true, allowGuest: false },
+    props: true,
+  },
   {
     path: "/transfer",
     name: "Transfer",

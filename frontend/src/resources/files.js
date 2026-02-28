@@ -342,6 +342,71 @@ export const storageBar = createResource({
   cache: "total_storage",
 })
 
+// Attachments Integration Resources
+export const getAttachmentDocTypes = createResource({
+  url: "drive.api.attachments.get_doctypes_with_attachments",
+  method: "GET",
+  cache: "attachment-doctypes",
+  transform(data) {
+    return data.map((k) => ({
+      ...k,
+      name: k.doctype,
+      title: k.doctype_label || k.doctype,
+      is_group: true,
+      mime_type: "folder",
+      file_type: "DocType",
+      file_size: 0,
+      children: k.file_count,
+      modified: k.last_modified,
+    }))
+  },
+})
+
+export const getAttachmentDocuments = createResource({
+  url: "drive.api.attachments.get_documents_with_attachments",
+  method: "GET",
+  transform(data) {
+    return data.map((k) => ({
+      ...k,
+      name: k.document_name,
+      title: k.title || k.document_name,
+      is_group: true,
+      mime_type: "folder",
+      file_type: "Document",
+      file_size: k.total_size || 0,
+      children: k.file_count,
+      modified: k.last_modified,
+    }))
+  },
+})
+
+export const getDocumentFiles = createResource({
+  url: "drive.api.attachments.get_document_files",
+  method: "GET",
+  transform(data) {
+    return prettyData(
+      data.map((k) => ({
+        ...k,
+        name: k.name,
+        title: k.file_name,
+        is_group: false,
+        file_size: k.file_size || 0,
+        modified: k.modified,
+        path: k.file_url,
+        is_attachment: true,
+        attachment_source: k.source,
+        attachment_field: k.field,
+      }))
+    )
+  },
+})
+
+export const getAttachmentCounts = createResource({
+  url: "drive.api.attachments.get_attachment_counts",
+  method: "GET",
+  cache: "attachment-counts",
+})
+
 setCache(getTeam, "home-folder-contents")
 setCache(getShared, "shared-folder-contents")
 setCache(getRecents, "recents-folder-contents")

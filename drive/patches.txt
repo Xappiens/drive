@@ -9,3 +9,5 @@ drive.patches.settings
 drive.patches.new_writer #3
 drive.patches.turn_on_flat_disk
 drive.patches.add_modified_field
+drive.patches.enable_attachments_integration
+drive.patches.add_attachment_indexes

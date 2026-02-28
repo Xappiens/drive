@@ -72,6 +72,7 @@ import LucideInbox from "~icons/lucide/inbox"
 import LucideSearch from "~icons/lucide/search"
 import LucideFileText from "~icons/lucide/file-text"
 import LucideGalleryVerticalEnd from "~icons/lucide/gallery-vertical-end"
+import LucidePaperclip from "~icons/lucide/paperclip"
 
 import SettingsDialog from "@/components/Settings/SettingsDialog.vue"
 import ShortcutsDialog from "@/components/ShortcutsDialog.vue"
@@ -287,6 +288,13 @@ const sidebarItems = computed(() => {
           icon: LucideGalleryVerticalEnd,
           isActive: first.name == "Slides",
           cond: apps.data?.find?.((k) => k.name === "slides"),
+        },
+        {
+          label: __("Attachments"),
+          to: `/attachments`,
+          icon: LucidePaperclip,
+          isActive: first.name == "Attachments",
+          accessKey: "a",
         },
       ]),
     },

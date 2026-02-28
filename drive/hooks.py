@@ -28,7 +28,8 @@ add_to_apps_screen = [
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/drive/css/drive.css"
-app_include_js = "ff_integration.bundle.js"
+app_include_js = ["ff_integration.bundle.js", "drive_attachments.bundle.js"]
+app_include_css = "drive_attachments.bundle.css"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/drive/css/drive.css"
@@ -81,12 +82,19 @@ app_include_js = "ff_integration.bundle.js"
 
 # before_install = "drive.install.before_install"
 after_install = "drive.install.after_install"
+after_migrate = "drive.install.after_migrate"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "drive.uninstall.before_uninstall"
+before_uninstall = "drive.uninstall.before_uninstall"
 # after_uninstall = "drive.uninstall.after_uninstall"
+
+# Boot Session
+# ------------
+# Add Drive integration settings to boot info
+
+boot_session = "drive.boot.get_boot_info"
 
 # Desk Notifications
 # ------------------
