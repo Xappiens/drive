@@ -92,7 +92,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted } from "vue"
+import { ref, computed, watch } from "vue"
 import { useRoute } from "vue-router"
 import { Button, LoadingIndicator } from "frappe-ui"
 import { getDocumentFiles } from "@/resources/files"
@@ -163,6 +163,4 @@ async function fetchFiles() {
 }
 
 watch([doctype, docname], fetchFiles, { immediate: true })
-
-onMounted(fetchFiles)
 </script>

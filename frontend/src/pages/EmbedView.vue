@@ -85,7 +85,8 @@ function downloadFile(file) {
 
 function sendHeightToParent() {
   const height = document.body.scrollHeight
-  window.parent.postMessage({ type: "drive-resize", height }, "*")
+  const targetOrigin = window.location.origin
+  window.parent.postMessage({ type: "drive-resize", height }, targetOrigin)
 }
 
 async function fetchFiles() {

@@ -143,8 +143,17 @@ def get_document_files(doctype, docname, include_referenced=True):
     Returns:
         List of file documents with metadata
     """
+    if not doctype or not frappe.db.exists("DocType", doctype):
+        frappe.throw(_("Invalid DocType"), frappe.ValidationError)
+    
+    if not docname or not frappe.db.exists(doctype, docname):
+        frappe.throw(_("Document not found"), frappe.DoesNotExistError)
+    
     if not frappe.has_permission(doctype, "read", docname):
         frappe.throw(_("No permission to access this document"), frappe.PermissionError)
+    
+    if isinstance(include_referenced, str):
+        include_referenced = include_referenced.lower() in ("true", "1", "yes")
     
     attachments = frappe.get_all(
         "File",

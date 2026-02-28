@@ -82,6 +82,7 @@ class DriveAttachmentsWidget {
     }
 
     handleMessage(event) {
+        if (event.origin !== window.location.origin) return;
         if (!event.data || typeof event.data !== 'object') return;
 
         switch (event.data.type) {
