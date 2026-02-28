@@ -80,7 +80,7 @@
 import { ref, watch, computed } from "vue"
 import { useStore } from "vuex"
 import { useTimeAgo } from "@vueuse/core"
-import { openEntity } from "@/utils/files"
+import { openEntity, getTimeAgoOptions } from "@/utils/files"
 
 import emitter from "@/emitter"
 
@@ -136,7 +136,7 @@ function addToList(data, file_type) {
     write: 1,
     share: 1,
     comment: 1,
-    relativeModified: useTimeAgo(now),
+    relativeModified: useTimeAgo(now, getTimeAgoOptions()),
   }
   listResource.value.data.push(data)
 }

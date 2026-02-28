@@ -154,7 +154,7 @@ const selectedColumns = [
     key: "",
     getLabel: ({ row }) =>
       row.owner === store.state.user.id
-        ? "You"
+        ? __("You")
         : props.userData[row.owner]?.full_name || row.owner,
     prefix: ({ row }) => {
       return h(Avatar, {

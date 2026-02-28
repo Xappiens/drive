@@ -374,7 +374,14 @@ watch(
         break
       case 1:
         breadcrumbs.value = [
-          { name: "", title: getTeams.data[team].title, is_private: 0 },
+          {
+            name: "",
+            title:
+              getTeams.data[team].title === "Sample files"
+                ? __("Sample files")
+                : getTeams.data[team].title,
+            is_private: 0,
+          },
         ]
         fetchFolderContents(tree)
         break

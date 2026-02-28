@@ -256,7 +256,7 @@ const sidebarItems = computed(() => {
       items:
         getTeams.data &&
         Object.values(getTeams.data).map((team) => ({
-          label: team.title,
+          label: team.title === "Sample files" ? __("Sample files") : team.title,
           to: `/t/${team.name}/`,
           icon: h(icons[team.icon || "building"]),
           isActive: team.name === first.name,

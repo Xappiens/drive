@@ -4,9 +4,11 @@
       v-if="selections?.length"
       class="my-auto w-[40%] text-base text-ink-gray-8"
     >
-      {{ selections.length }}
-      {{ selections.length === 1 ? __("item") : __("items") }}
-      {{ __("selected") }}
+      {{
+        selections.length === 1
+          ? __("1 item selected")
+          : __("%s items selected").replace("%s", selections.length)
+      }}
     </div>
     <div
       v-else-if="$route.name === 'Shared'"

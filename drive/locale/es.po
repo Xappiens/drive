@@ -2026,3 +2026,60 @@ msgstr "Suelta aquí para subir"
 
 msgid "Sample files"
 msgstr "Archivos de ejemplo"
+
+msgid "1 item selected"
+msgstr "1 elemento seleccionado"
+
+msgid "%s items selected"
+msgstr "%s elementos seleccionados"
+
+msgid "These items "
+msgstr "Estos elementos "
+
+msgid "Restore an item"
+msgstr "Restaurar un elemento"
+
+msgid "Restore %s items"
+msgstr "Restaurar %s elementos"
+
+msgid "will be restored to its original location."
+msgstr "será restaurado a su ubicación original."
+
+msgid "will be restored to their original locations."
+msgstr "serán restaurados a sus ubicaciones originales."
+
+msgid "Restored an item."
+msgstr "Elemento restaurado."
+
+msgid "Restored %s items."
+msgstr "%s elementos restaurados."
+
+msgid "Move an item to Trash"
+msgstr "Mover un elemento a la papelera"
+
+msgid "Move %s items to Trash"
+msgstr "Mover %s elementos a la papelera"
+
+msgid "will be moved to Trash.<br/><br/> Items in trash are deleted forever after 30 days."
+msgstr "se moverá a la papelera.<br/><br/> Los elementos en la papelera se eliminan permanentemente después de 30 días."
+
+msgid "Moved an item to Trash."
+msgstr "Elemento movido a la papelera."
+
+msgid "Moved %s items to Trash."
+msgstr "%s elementos movidos a la papelera."
+
+msgid "Delete an item"
+msgstr "Eliminar un elemento"
+
+msgid "Delete %s items"
+msgstr "Eliminar %s elementos"
+
+msgid "will be deleted - you can no longer access it.<br/><br/> <span class=font-semibold>This is an irreversible action.</span>"
+msgstr "será eliminado y no podrás acceder a él.<br/><br/> <span class=font-semibold>Esta acción es irreversible.</span>"
+
+msgid "Deleted an item."
+msgstr "Elemento eliminado."
+
+msgid "Deleted %s items."
+msgstr "%s elementos eliminados."
