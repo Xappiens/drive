@@ -57,7 +57,7 @@ import FrappeDriveLogo from "@/components/FrappeDriveLogo.vue"
 import StorageBar from "./StorageBar.vue"
 import { Sidebar, createResource } from "frappe-ui"
 import SidebarItem from "frappe-ui/src/components/Sidebar/SidebarItem.vue"
-import { notifCount, apps } from "@/resources/permissions"
+import { notifCount, apps, integrationConfig } from "@/resources/permissions"
 import { getTeams } from "@/resources/files"
 import { dynamicList } from "@/utils/files"
 
@@ -92,6 +92,7 @@ const router = useRouter()
 notifCount.fetch()
 getTeams.fetch()
 apps.fetch()
+integrationConfig.fetch()
 
 const teamExists = createResource({
   url: "drive.utils.get_default_team",
@@ -295,7 +296,7 @@ const sidebarItems = computed(() => {
           icon: LucidePaperclip,
           isActive: first.name == "Attachments",
           accessKey: "a",
-          cond: true,
+          cond: integrationConfig.data?.enabled && integrationConfig.data?.show_attachments_in_drive,
         },
       ]),
     },

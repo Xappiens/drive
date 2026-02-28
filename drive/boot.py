@@ -1,6 +1,12 @@
 import frappe
 
 
+@frappe.whitelist(allow_guest=True)
+def get_integration_config():
+    """API endpoint to get Drive integration settings for the Drive frontend."""
+    return get_integration_settings()
+
+
 def get_boot_info(boot_info):
     """Add Drive integration settings to Frappe boot info.
     
