@@ -1,127 +1,101 @@
 <template>
-  <div class="embed-container">
-    <div v-if="loading" class="embed-loading">
-      <LoadingIndicator class="w-5 h-5 text-ink-gray-5" />
-    </div>
-
-    <div v-else-if="error" class="embed-error">
-      <LucideAlertCircle class="w-8 h-8 text-ink-red-5" />
-      <p class="text-sm text-ink-gray-5">{{ error }}</p>
-    </div>
-
-    <div v-else-if="!files.length" class="embed-empty">
-      <LucideFiles class="w-8 h-8 text-ink-gray-3" />
-      <p class="text-sm text-ink-gray-5">{{ __('No attachments') }}</p>
-    </div>
-
-    <div v-else class="embed-content">
-      <div class="embed-header">
-        <span class="text-xs font-medium text-ink-gray-5 uppercase">
-          {{ files.length }} {{ files.length === 1 ? __('file') : __('files') }}
-        </span>
-        <button
-          class="embed-expand-btn"
-          :title="__('Open in Drive')"
-          @click="openInDrive"
-        >
-          <LucideExternalLink class="w-3.5 h-3.5" />
-        </button>
-      </div>
-
-      <div class="embed-list">
-        <div
-          v-for="file in files"
-          :key="file.name"
-          class="embed-file-item"
-          @click="downloadFile(file)"
-        >
-          <component :is="getFileIcon(file)" class="w-4 h-4 text-ink-gray-5 shrink-0" />
-          <span class="embed-file-name">{{ file.title }}</span>
-          <span class="embed-file-size">{{ formatSize(file.file_size) }}</span>
-        </div>
-      </div>
-    </div>
+  <div :class="['embed-container', { 'embed-modal': isModal }]">
+    <GenericPage
+      v-if="doctype && docname"
+      :get-entities="documentFiles"
+      :show-sort="true"
+      :empty="{
+        icon: LucideFiles,
+        title: __('No attachments'),
+        description: __('Files attached to this document will appear here.'),
+      }"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch, onMounted, onBeforeUnmount } from "vue"
+import { computed, watch, onMounted, onBeforeUnmount } from "vue"
 import { useRoute } from "vue-router"
-import { LoadingIndicator } from "frappe-ui"
-import { getDocumentFiles } from "@/resources/files"
-import { formatSize } from "@/utils/format"
+import { useStore } from "vuex"
+import { createResource } from "frappe-ui"
+import { prettyData } from "@/utils/files"
+import GenericPage from "@/components/GenericPage.vue"
 import LucideFiles from "~icons/lucide/files"
-import LucideFile from "~icons/lucide/file"
-import LucideFileText from "~icons/lucide/file-text"
-import LucideFileImage from "~icons/lucide/file-image"
-import LucideExternalLink from "~icons/lucide/external-link"
-import LucideAlertCircle from "~icons/lucide/alert-circle"
 
 const route = useRoute()
-const loading = ref(true)
-const error = ref(null)
-const files = ref([])
+const store = useStore()
 
 const doctype = computed(() => decodeURIComponent(route.params.doctype || ""))
 const docname = computed(() => decodeURIComponent(route.params.docname || ""))
+const isModal = computed(() => route.query.modal === "1")
 
-function getFileIcon(file) {
-  const mime = file.mime_type || ""
-  if (mime.startsWith("image/")) return LucideFileImage
-  if (mime.includes("pdf") || mime.includes("document") || mime.includes("text")) return LucideFileText
-  return LucideFile
+store.commit("setCurrentFolder", { name: docname.value, team: "" })
+store.commit("setBreadcrumbs", [
+  {
+    label: docname.value,
+    name: docname.value,
+  },
+])
+
+function getFileTypeFromMime(mimeType) {
+  if (!mimeType) return "Unknown"
+  if (mimeType.startsWith("image/")) return "Image"
+  if (mimeType.startsWith("video/")) return "Video"
+  if (mimeType.startsWith("audio/")) return "Audio"
+  if (mimeType.includes("pdf")) return "PDF"
+  if (mimeType.includes("spreadsheet") || mimeType.includes("excel")) return "Spreadsheet"
+  if (mimeType.includes("presentation") || mimeType.includes("powerpoint")) return "Presentation"
+  if (mimeType.includes("document") || mimeType.includes("word")) return "Document"
+  if (mimeType.includes("text/")) return "Text"
+  if (mimeType.includes("zip") || mimeType.includes("archive") || mimeType.includes("compressed")) return "Archive"
+  return "Unknown"
 }
 
-function openInDrive() {
-  window.open(`/drive/attachments/${encodeURIComponent(doctype.value)}/${encodeURIComponent(docname.value)}`, "_blank")
-}
+const documentFiles = createResource({
+  url: "drive.api.attachments.get_document_files",
+  method: "GET",
+  makeParams: () => ({
+    doctype: doctype.value,
+    docname: docname.value,
+    include_referenced: true,
+  }),
+  transform(data) {
+    return prettyData(
+      data.map((k) => {
+        const isImage = k.mime_type?.startsWith("image/")
+        const fileType = getFileTypeFromMime(k.mime_type)
+        return {
+          ...k,
+          name: k.name,
+          title: k.file_name,
+          is_group: false,
+          file_type: fileType,
+          file_size: k.file_size || 0,
+          modified: k.modified,
+          path: k.file_url,
+          owner: k.owner || "",
+          is_attachment: true,
+          attachment_source: k.source,
+          attachment_field: k.field,
+          attachment_doctype: doctype.value,
+          attachment_docname: docname.value,
+          thumbnail: isImage ? k.file_url : null,
+        }
+      })
+    )
+  },
+})
 
-function downloadFile(file) {
-  const url = file.path || file.file_url
-  if (url) {
-    window.open(url, "_blank")
+watch([doctype, docname], () => {
+  if (doctype.value && docname.value) {
+    documentFiles.fetch()
   }
-}
-
-function sendHeightToParent() {
-  const height = document.body.scrollHeight
-  const targetOrigin = window.location.origin
-  window.parent.postMessage({ type: "drive-resize", height }, targetOrigin)
-}
-
-async function fetchFiles() {
-  if (!doctype.value || !docname.value) {
-    error.value = __("Invalid document reference")
-    loading.value = false
-    return
-  }
-
-  loading.value = true
-  error.value = null
-  
-  try {
-    const result = await getDocumentFiles.fetch({
-      doctype: doctype.value,
-      docname: docname.value,
-      include_referenced: true,
-    })
-    files.value = result || []
-    
-    setTimeout(sendHeightToParent, 100)
-  } catch (e) {
-    console.error("Error fetching files:", e)
-    error.value = __("Could not load attachments")
-    files.value = []
-  } finally {
-    loading.value = false
-  }
-}
-
-watch([doctype, docname], fetchFiles, { immediate: true })
+}, { immediate: true })
 
 function handleParentMessage(event) {
+  if (event.origin !== window.location.origin) return
   if (event.data?.type === "drive-refresh") {
-    fetchFiles()
+    documentFiles.fetch()
   }
 }
 
@@ -136,80 +110,19 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .embed-container {
-  font-family: var(--font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
-  font-size: 13px;
-  color: var(--text-color, #1e293b);
-  background: var(--bg-color, #ffffff);
-  min-height: 100px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-.embed-loading,
-.embed-error,
-.embed-empty {
+.embed-modal {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 2rem;
-  text-align: center;
 }
 
-.embed-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border-color, #e2e8f0);
-  background: var(--surface-gray-1, #f8fafc);
-}
-
-.embed-expand-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 4px;
-  color: var(--text-muted, #64748b);
-}
-
-.embed-expand-btn:hover {
-  background: var(--surface-gray-2, #f1f5f9);
-  color: var(--text-color, #1e293b);
-}
-
-.embed-list {
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.embed-file-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.embed-file-item:hover {
-  background: var(--surface-gray-1, #f8fafc);
-}
-
-.embed-file-name {
+.embed-modal :deep(.generic-page) {
   flex: 1;
-  min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.embed-file-size {
-  font-size: 11px;
-  color: var(--text-muted, #64748b);
-  white-space: nowrap;
 }
 </style>

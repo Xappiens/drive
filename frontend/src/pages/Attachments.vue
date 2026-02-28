@@ -20,6 +20,13 @@ import LucidePaperclip from "~icons/lucide/paperclip"
 
 const store = useStore()
 store.commit("setCurrentFolder", { name: "", team: "" })
+store.commit("setBreadcrumbs", [
+  {
+    label: __("Attachments"),
+    name: "Attachments",
+    route: { name: "Attachments" },
+  },
+])
 
 const attachmentDocTypes = createResource({
   url: "drive.api.attachments.get_doctypes_with_attachments",
@@ -31,7 +38,7 @@ const attachmentDocTypes = createResource({
       title: k.doctype_label || k.doctype,
       is_group: true,
       mime_type: "folder",
-      file_type: "DocType",
+      file_type: "Folder",
       file_size: 0,
       children: k.file_count,
       modified: k.last_modified,

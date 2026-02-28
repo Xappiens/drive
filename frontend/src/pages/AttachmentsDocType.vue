@@ -24,7 +24,20 @@ const store = useStore()
 
 const doctype = computed(() => route.params.doctype)
 
-store.commit("setCurrentFolder", { name: doctype.value, team: "" })
+function updateBreadcrumbs() {
+  store.commit("setCurrentFolder", { name: doctype.value, team: "" })
+  store.commit("setBreadcrumbs", [
+    {
+      label: __("Attachments"),
+      name: "Attachments",
+      route: { name: "Attachments" },
+    },
+    {
+      label: doctype.value,
+      name: doctype.value,
+    },
+  ])
+}
 
 const attachmentDocuments = createResource({
   url: "drive.api.attachments.get_documents_with_attachments",
@@ -39,7 +52,7 @@ const attachmentDocuments = createResource({
       title: k.title || k.document_name,
       is_group: true,
       mime_type: "folder",
-      file_type: "Document",
+      file_type: "Folder",
       file_size: k.total_size || 0,
       children: k.file_count,
       modified: k.last_modified,
@@ -52,6 +65,7 @@ const attachmentDocuments = createResource({
 
 watch(doctype, () => {
   if (doctype.value) {
+    updateBreadcrumbs()
     attachmentDocuments.fetch()
   }
 }, { immediate: true })
