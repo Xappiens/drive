@@ -16,6 +16,7 @@ import { createResource } from "frappe-ui"
 import { watch, computed } from "vue"
 import { useRoute } from "vue-router"
 import { useStore } from "vuex"
+import { prettyData } from "@/utils/files"
 import LucideFileText from "~icons/lucide/file-text"
 
 const route = useRoute()
@@ -32,7 +33,7 @@ const attachmentDocuments = createResource({
     doctype: doctype.value,
   }),
   transform(data) {
-    return data.map((k) => ({
+    return prettyData(data.map((k) => ({
       ...k,
       name: k.document_name,
       title: k.title || k.document_name,
@@ -45,7 +46,7 @@ const attachmentDocuments = createResource({
       owner: "",
       is_attachment_document: true,
       attachment_doctype: doctype.value,
-    }))
+    })))
   },
 })
 

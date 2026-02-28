@@ -15,6 +15,7 @@ import GenericPage from "@/components/GenericPage.vue"
 import { createResource } from "frappe-ui"
 import { onMounted } from "vue"
 import { useStore } from "vuex"
+import { prettyData } from "@/utils/files"
 import LucidePaperclip from "~icons/lucide/paperclip"
 
 const store = useStore()
@@ -23,9 +24,8 @@ store.commit("setCurrentFolder", { name: "", team: "" })
 const attachmentDocTypes = createResource({
   url: "drive.api.attachments.get_doctypes_with_attachments",
   method: "GET",
-  cache: "attachment-doctypes",
   transform(data) {
-    return data.map((k) => ({
+    return prettyData(data.map((k) => ({
       ...k,
       name: k.doctype,
       title: k.doctype_label || k.doctype,
@@ -37,7 +37,7 @@ const attachmentDocTypes = createResource({
       modified: k.last_modified,
       owner: "",
       is_attachment_doctype: true,
-    }))
+    })))
   },
 })
 
